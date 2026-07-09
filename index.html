@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penelope Paige</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #120B1C;
+      --surface:    #1C1029;
+      --border:     #3A1A28;
+      --red:        #BF1D2F;
+      --red-dark:   #8C1522;
+      --blue:       #5EC0E9;
+      --blue-dim:   #3A8BAD;
+      --cream:      #EDE0CC;
+      --muted:      #8A7A96;
+      --btn-bg:     #1C0E28;
+      --btn-hover:  #261239;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 55% at 50% -5%, #2A0E1E 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 100%, #1A0818 0%, transparent 60%);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 2.75rem;
+    }
+
+    .tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.65rem, 2.2vw, 0.78rem);
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-wrap {
+      width: min(420px, 90vw);
+      margin: 0 auto 1.4rem;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .divider-line {
+      height: 1px;
+      width: 48px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .divider-mark {
+      color: var(--red);
+      font-size: 0.6rem;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      width: 100%;
+      max-width: 420px;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+      margin-top: 1.5rem;
+      padding-left: 0.1rem;
+    }
+
+    /* ── Links ── */
+    .links {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--btn-bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: var(--cream);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(191,29,47,0.07) 100%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .link-card:hover {
+      background: var(--btn-hover);
+      border-color: var(--red);
+      transform: translateY(-1px);
+    }
+
+    .link-card:hover::before {
+      opacity: 1;
+    }
+
+    .link-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      width: 1.5rem;
+      text-align: center;
+    }
+
+    .link-text {
+      flex: 1;
+    }
+
+    .link-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .link-sub {
+      font-size: 0.71rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      display: block;
+      letter-spacing: 0.02em;
+    }
+
+    .link-arrow {
+      color: var(--blue);
+      font-size: 0.85rem;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .link-card:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* ── Socials ── */
+    .socials-row {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 420px;
+      margin-top: 0.65rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 2.75rem;
+      text-align: center;
+    }
+
+    .footer-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 300px;
+      line-height: 1.7;
+    }
+
+    .footer-mark {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .link-card, .link-arrow { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <p class="tagline">No limits. No labels. Just smut.</p>
+    <div class="logo-wrap">
+      <img src="pen_signature_tx.svg" alt="Penelope Paige" />
+    </div>
+    <div class="divider">
+      <span class="divider-line"></span>
+      <span class="divider-mark">✦</span>
+      <span class="divider-line"></span>
+    </div>
+  </header>
+
+  <p class="section-label">Read my books</p>
+  <nav class="links">
+    <a href="YOUR_AMAZON_LINK" class="link-card" target="_blank" rel="noopener">
+      <span class="link-icon">📖</span>
+      <span class="link-text">
+        <span class="link-label">Kindle Unlimited</span>
+        <span class="link-sub">10 titles — short, spicy, and completely unhinged</span>
+      </span>
+      <span class="link-arrow">→</span>
+    </a>
+  </nav>
+
+  <p class="section-label">Find me on socials</p>
+  <nav class="links">
+    <a href="YOUR_INSTAGRAM_LINK" class="link-card" target="_blank" rel="noopener">
+      <span class="link-icon">📸</span>
+      <span class="link-text">
+        <span class="link-label">Instagram</span>
+        <span class="link-sub">Feral screenshots &amp; general chaos</span>
+      </span>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="YOUR_FACEBOOK_LINK" class="link-card" target="_blank" rel="noopener">
+      <span class="link-icon">☕</span>
+      <span class="link-text">
+        <span class="link-label">Facebook</span>
+        <span class="link-sub">Grocery runs, kid shenanigans, the real life stuff</span>
+      </span>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="YOUR_X_LINK" class="link-card" target="_blank" rel="noopener">
+      <span class="link-icon">🖤</span>
+      <span class="link-text">
+        <span class="link-label">X / Twitter</span>
+        <span class="link-sub">Uncensored. You've been warned.</span>
+      </span>
+      <span class="link-arrow">→</span>
+    </a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-quote">
+      Writing the women I needed when I was younger.<br />
+      <span class="footer-mark">✦</span> Better late than never. <span class="footer-mark">✦</span>
+    </p>
+  </footer>
+
+</body>
+</html>
