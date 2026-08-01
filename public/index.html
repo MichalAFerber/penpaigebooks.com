@@ -25,66 +25,33 @@
       --btn-hover:  #261239;
     }
 
-    html, body {
+    body {
       min-height: 100vh;
-      background-color: #0a0a0a;
-      background-image:
-        url("bg.png"),
-        linear-gradient(180deg, #000000 0%, #3a3a3a 100%);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: linear-gradient(180deg, #9a9498 0%, #bf1d2f 100%);
       font-family: 'DM Sans', sans-serif;
       color: var(--cream);
       display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2rem);
+    }
+
+    /* Bedsheet graphic as a floating, rounded card on the gradient backdrop */
+    .frame {
+      width: 100%;
+      max-width: 460px;
+      background-color: #0a0a0a;
+      background-image: url("bg.png");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1.25rem 4rem;
-    }
-
-    /* ── Header ── */
-    .header {
-      text-align: center;
-      margin-bottom: 2.75rem;
-    }
-
-    .tagline {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(0.65rem, 2.2vw, 0.78rem);
-      font-weight: 500;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1.5rem;
-    }
-
-    .logo-wrap {
-      width: min(420px, 90vw);
-      margin: 0 auto 1.4rem;
-    }
-
-    .logo-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-
-    .divider-line {
-      height: 1px;
-      width: 48px;
-      background: linear-gradient(90deg, transparent, var(--red), transparent);
-    }
-
-    .divider-mark {
-      color: var(--red);
-      font-size: 0.6rem;
+      padding: clamp(9rem, 40vw, 12rem) 1.25rem 3.5rem;
     }
 
     /* ── Section label ── */
@@ -95,7 +62,7 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #2b2530;
       margin-bottom: 0.65rem;
       margin-top: 1.5rem;
       padding-left: 0.1rem;
@@ -116,7 +83,7 @@
       gap: 1rem;
       background: var(--btn-bg);
       border: 1px solid var(--border);
-      border-radius: 3px;
+      border-radius: 14px;
       padding: 1rem 1.25rem;
       text-decoration: none;
       color: var(--cream);
@@ -224,12 +191,7 @@
 </head>
 <body>
 
-  <header class="header">
-    <p class="tagline">No limits. No labels. Just smut.</p>
-    <div class="logo-wrap">
-      <img src="pen_signature_tx.svg" alt="Penelope Paige" />
-    </div>
-  </header>
+  <div class="frame">
 
   <p class="section-label">Read my books</p>
   <nav class="links">
@@ -279,6 +241,8 @@
       Better late than never.
     </p>
   </footer>
+
+  </div>
 
 </body>
 </html>
