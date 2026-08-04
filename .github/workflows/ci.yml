@@ -1,0 +1,41 @@
+name: ci
+
+# §4: the gate lives on the pull request. This repo deployed from main with
+# nothing checking a change first, so the deploy was the first thing to find out.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Job name is the required-check context; the estate requires `ci`.
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every HTML file must parse
+        run: |
+          fail=0; n=0
+          for f in $(git ls-files '*.html'); do
+            n=$((n+1))
+            python3 - "$f" <<'EOF' || fail=1
+          import sys
+          from html.parser import HTMLParser
+          class P(HTMLParser):
+              def error(self, m): raise ValueError(m)
+          try:
+              P().feed(open(sys.argv[1], encoding='utf-8').read())
+          except Exception as e:
+              print(f"::error file={sys.argv[1]}::{e}"); sys.exit(1)
+          EOF
+          done
+          echo "checked $n HTML files"
+          [ "$n" -gt 0 ] || { echo "::error::no HTML found — has the layout changed?"; exit 1; }
+          exit $fail
