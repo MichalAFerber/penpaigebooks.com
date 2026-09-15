@@ -206,6 +206,23 @@
       color: var(--muted);
       white-space: nowrap;
     }
+    .dated {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--paper);
+      white-space: nowrap;
+    }
+    .dated::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 0.4rem;
+      border-radius: 50%;
+      background: var(--red);
+      vertical-align: middle;
+    }
 
     /* Pre-order reads like a rubber ink-stamp, slightly off-kilter */
     .stamp {
@@ -332,7 +349,7 @@
             <a href="https://www.instagram.com/authornix.marie/" target="_blank" rel="noopener">Nix Marie</a>
           </p>
         </div>
-        <div class="book-status"><span class="waiting">coming soon</span></div>
+        <div class="book-status"><span class="dated">out Nov 3</span></div>
       </article>
 
       <p class="set-head">Ruined Lies <span>&middot; a duet</span></p>
