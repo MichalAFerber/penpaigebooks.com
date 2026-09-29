@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Roped in Ruin — Promo Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --ground:#EDEFE8; --surface:#FAFBF6; --surface-2:#E3E7DA;
+  --ink:#20221D; --ink-2:#525848; --ink-3:#83897A;
+  --rule:#D2D8C6; --rule-strong:#B4BCA5;
+  --turq:#0E7C77; --turq-soft:#DBECEA;
+  --rust:#A8452A; --rust-soft:#F6E4DE;
+  --brass:#87681F; --brass-soft:#F2E9D4;
+  --shadow:0 1px 2px rgba(32,34,29,.05), 0 10px 26px -14px rgba(32,34,29,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#15170F; --surface:#1E211A; --surface-2:#282C22;
+    --ink:#EEF1E6; --ink-2:#B7BEA9; --ink-3:#848B77;
+    --rule:#343930; --rule-strong:#4A5142;
+    --turq:#4CC5BA; --turq-soft:#13302E;
+    --rust:#DE8862; --rust-soft:#33201A;
+    --brass:#CCA657; --brass-soft:#2E2716;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -14px rgba(0,0,0,.75);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Source Sans 3","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Bitter",Georgia,"Times New Roman",serif;text-wrap:balance;margin:0}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 96px}
+
+/* masthead */
+.mast{background:var(--surface);border-bottom:1px solid var(--rule)}
+.mast-in{max-width:1100px;margin:0 auto;padding:38px 24px 30px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--turq);font-weight:700}
+.mast h1{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(32px,5.6vw,58px);line-height:.98;letter-spacing:-.015em;margin:14px 0 0}
+.mast h1 span{color:var(--rust)}
+.standfirst{margin-top:16px;max-width:68ch;color:var(--ink-2);font-size:16px}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border:1px solid var(--rule);background:var(--rule)}
+.fact{flex:1 1 140px;background:var(--surface);padding:14px 18px}
+.fact .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.fact .v{font-family:"Bitter",serif;font-size:19px;font-weight:600;margin-top:1px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.jump a{font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);text-decoration:none}
+.jump a:hover{background:var(--turq-soft);color:var(--turq)}
+
+/* section head */
+.sec{display:flex;align-items:baseline;gap:12px;margin:56px 0 6px;scroll-margin-top:20px}
+.sec h2{font-family:"Source Sans 3",sans-serif;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-3)}
+.sec .ln{flex:1;height:1px;background:var(--rule)}
+.lede{color:var(--ink-2);font-size:14.5px;max-width:74ch;margin:10px 0 0}
+
+/* overview timeline */
+.tl-scroll{overflow-x:auto;margin-top:20px;border:1px solid var(--rule);background:var(--surface);box-shadow:var(--shadow)}
+.tl{min-width:860px;padding:18px 22px 22px}
+.tl-months{display:grid;grid-template-columns:repeat(8,1fr);border-bottom:1px solid var(--rule);margin-bottom:6px}
+.tl-months div{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-3);padding:0 0 7px 7px;border-left:1px solid var(--rule)}
+.tl-months div:first-child{border-left:none;padding-left:0}
+.tl-body{position:relative}
+.tl-row{position:relative;height:44px;border-bottom:1px dotted var(--rule)}
+.tl-row:last-child{border-bottom:none}
+.tl-label{position:absolute;left:0;top:2px;font-size:12px;font-weight:700;z-index:3;color:var(--ink);background:var(--surface);padding-right:8px}
+.tl-label em{font-style:normal;color:var(--ink-3);font-weight:400}
+.bar{position:absolute;top:23px;height:7px;border-radius:4px}
+.bar.tease{background:var(--brass-soft);border:1px solid var(--brass)}
+.bar.book{background:var(--turq-soft);border:1px solid var(--turq)}
+.mk{position:absolute;top:18px;transform:translateX(-50%);z-index:2}
+.mk i{display:block;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--rule-strong);font-style:normal}
+.mk.r i{border-color:var(--rust);background:var(--rust);width:16px;height:16px;margin:-1px}
+.mk b{position:absolute;top:17px;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap;color:var(--ink-2)}
+.mk.r b{color:var(--rust)}
+.today{position:absolute;top:0;bottom:0;width:2px;background:var(--rule-strong);z-index:0}
+.today::after{content:"TODAY";position:absolute;bottom:-4px;left:6px;font-size:9px;font-weight:700;letter-spacing:.12em;color:var(--ink-3);white-space:nowrap}
+.key{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;padding-top:13px;border-top:1px solid var(--rule);font-size:12px;color:var(--ink-2)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{width:11px;height:11px;border-radius:3px;display:block;font-style:normal;border:1px solid}
+.key .kt i{border-color:var(--brass);background:var(--brass-soft)}
+.key .kb i{border-color:var(--turq);background:var(--turq-soft)}
+.key .kr i{border-radius:50%;border-color:var(--rust);background:var(--rust)}
+
+/* phase blocks */
+.phase{margin-top:18px;background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow)}
+.phase-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;padding:18px 22px;border-bottom:2px solid var(--ink)}
+.phase-head .pn{font-family:"Alfa Slab One",serif;font-size:20px;color:var(--rust)}
+.phase-head .pt{font-family:"Bitter",serif;font-size:19px;font-weight:700;flex:1;min-width:180px}
+.phase-head .pd{font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);white-space:nowrap}
+.phase-body{padding:18px 22px 20px}
+.phase-body p.goal{color:var(--ink-2);font-size:14px;margin:0 0 14px}
+.cadence{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}
+.cad-item{background:var(--surface-2);padding:10px 14px;border-radius:3px}
+.cad-item .day{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--turq)}
+.cad-item .what{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+.captions{display:flex;flex-wrap:wrap;gap:8px}
+.cap-chip{font-size:12.5px;font-style:italic;padding:6px 11px;border-radius:999px;background:var(--brass-soft);color:var(--brass)}
+.cap-chip.blank{background:var(--surface-2);color:var(--ink-3);font-style:normal;font-weight:600}
+.fillnote{margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule);font-size:12.5px;color:var(--ink-3)}
+.fillnote b{color:var(--ink)}
+
+/* spotlight table */
+.spot{margin-top:18px;overflow-x:auto;border:1px solid var(--rule);background:var(--surface);box-shadow:var(--shadow)}
+.spot table{border-collapse:collapse;width:100%;min-width:640px}
+.spot th{text-align:left;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;padding:12px 18px;border-bottom:2px solid var(--ink)}
+.spot td{padding:10px 18px;border-bottom:1px solid var(--rule);font-size:14px;vertical-align:top}
+.spot tr:last-child td{border-bottom:none}
+.spot td.b{font-weight:700}
+.spot td.n{color:var(--ink-2)}
+
+/* per-book beat sheets */
+.booksec{margin-top:24px;scroll-margin-top:20px}
+.book-head{background:var(--surface);border:1px solid var(--rule);border-top:5px solid var(--rust);box-shadow:var(--shadow);padding:22px 24px}
+.book-head .ord{font-family:"Alfa Slab One",serif;font-size:15px;color:var(--rust);letter-spacing:.05em}
+.book-head h3{font-size:25px;margin-top:4px}
+.book-head .by{font-size:14.5px;color:var(--ink-2);margin-top:4px}
+.book-head .by em{font-style:italic}
+.pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pill{font-size:11px;font-weight:700;letter-spacing:.03em;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.pill.me{background:var(--turq-soft);color:var(--turq)}
+.pill.rel{background:var(--rust-soft);color:var(--rust)}
+.beats{margin-top:1px}
+.beat{background:var(--surface);border:1px solid var(--rule);border-top:none;padding:18px 24px}
+.beat-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:8px}
+.beat-top .wk{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);padding:3px 9px;border-radius:3px}
+.beat-top .nm{font-family:"Bitter",serif;font-size:17px;font-weight:700;flex:1;min-width:140px}
+.beat-top .dt{font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.beat-goal{font-size:13.5px;color:var(--ink-2);margin-bottom:12px}
+.beat-note{margin-top:10px;padding-top:9px;border-top:1px dashed var(--rule);font-size:12.5px;color:var(--ink-3)}
+.beat-note b{color:var(--ink)}
+.beat.rel{background:var(--rust-soft)}
+.beat.rel .beat-top .nm{color:var(--rust)}
+
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);max-width:80ch}
+
+/* ── password gate (semblance of friction; not a vault) ── */
+body.locked{overflow:hidden}
+body.locked .mast,body.locked .wrap{display:none}
+#gate{position:fixed;inset:0;z-index:9999;background:var(--ground);display:grid;place-items:center;padding:24px}
+.gate-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--rule);border-top:5px solid var(--rust);box-shadow:var(--shadow);padding:30px 28px 26px;text-align:center}
+.gate-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--turq);font-weight:700}
+.gate-card h1{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:26px;line-height:1.05;margin:10px 0 8px;color:var(--ink)}
+.gate-card h1 span{color:var(--rust)}
+.gate-card p{color:var(--ink-2);font-size:14px;margin:0 auto 18px;max-width:30ch}
+.gate-card input{width:100%;font-size:15px;font-family:inherit;padding:11px 13px;border:1px solid var(--rule-strong);border-radius:4px;background:var(--ground);color:var(--ink)}
+.gate-card input:focus{outline:none;border-color:var(--turq)}
+.gate-card button{width:100%;margin-top:10px;font-family:"Bitter",serif;font-weight:700;font-size:15px;padding:11px 13px;border:none;border-radius:4px;background:var(--rust);color:#fff;cursor:pointer}
+.gate-card button:hover{filter:brightness(1.06)}
+.gate-err{color:var(--rust);font-size:12.5px;font-weight:700;margin:12px auto 0}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate">
+  <form class="gate-card" id="gate-form">
+    <div class="gate-eyebrow">Roped in Ruin</div>
+    <h1>Crew <span>only</span></h1>
+    <p>This is the promo plan. Enter the shared password to ride in.</p>
+    <input type="password" id="gate-pass" autocomplete="off" autofocus placeholder="Password" aria-label="Password">
+    <button type="submit">Enter</button>
+    <p class="gate-err" id="gate-err" hidden>Not quite. Try again.</p>
+  </form>
+</div>
+
+<script>
+(function(){
+  // SHA-256 of the shared password. This is a speed bump, not real security:
+  // the page content still ships to the browser. To change the password,
+  // replace this hash with sha256("<new password>").
+  var HASH = "13d447daf1d28a33b85e6d9d19a9dede09f61312d2d168c5baad65be89d4348f";
+  var gate = document.getElementById('gate');
+  function unlock(){ document.body.classList.remove('locked'); if(gate){ gate.remove(); } }
+  var already = false;
+  try { already = sessionStorage.getItem('rir_plan_ok') === '1'; } catch(e){}
+  if(already){ unlock(); return; }
+  var form = document.getElementById('gate-form');
+  var err = document.getElementById('gate-err');
+  var field = document.getElementById('gate-pass');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var val = field.value || '';
+    var done = function(ok){
+      if(ok){ try{ sessionStorage.setItem('rir_plan_ok','1'); }catch(e){} unlock(); }
+      else { err.hidden = false; field.select(); }
+    };
+    if(window.crypto && crypto.subtle){
+      crypto.subtle.digest('SHA-256', new TextEncoder().encode(val)).then(function(buf){
+        var hex = Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+        done(hex === HASH);
+      }).catch(function(){ done(false); });
+    } else {
+      done(false);
+    }
+  });
+})();
+</script>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="eyebrow">Series tease → series-wide reveal → each book's own launch</div>
+    <h1>Roped in Ruin<br><span>Full Promo Plan</span></h1>
+    <p class="standfirst">Everything in one place — the vague-on-purpose tease that starts now, the series reveal, and then each book's detailed, dated beat sheet running through to release. Fill in the specifics (copy, assets, exact dates) as a group; the shape and timing are here to save you the planning.</p>
+    <div class="facts">
+      <div class="fact"><div class="k">Today</div><div class="v" id="f-today">—</div></div>
+      <div class="fact"><div class="k">Days to Book 1</div><div class="v" id="f-days">—</div></div>
+      <div class="fact"><div class="k">Tease window</div><div class="v">~6 weeks</div></div>
+      <div class="fact"><div class="k">Then</div><div class="v">4 book beat sheets</div></div>
+    </div>
+    <div class="jump" id="jump-top"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="sec" id="overview"><h2>The whole runway, at a glance</h2><div class="ln"></div></div>
+  <p class="lede">The tease sits up front, series-wide. Once it hands off, each book runs its own confirmed cadence — pre-order at 12 weeks out, cover at 10, ARCs at 4 — staggered because the releases are.</p>
+  <div class="tl-scroll">
+    <div class="tl">
+      <div class="tl-months" id="tl-months"></div>
+      <div class="tl-body" id="tl-body"></div>
+      <div class="key">
+        <span class="kt"><i></i> Series tease / reveal / engagement</span>
+        <span class="kb"><i></i> Book's own pre-order → ARC window</span>
+        <span class="kr"><i></i> Release day</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="phase0"><h2>Phase 0 — World &amp; Concept Tease</h2><div class="ln"></div></div>
+  <div class="phase">
+    <div class="phase-head"><span class="pn">00</span><span class="pt">Mood only. No names.</span><span class="pd" id="p0-dates"></span></div>
+    <div class="phase-body">
+      <p class="goal">Vague on purpose — the goal is curiosity, not information. No titles, no author lineup, no series name yet.</p>
+      <div class="cadence">
+        <div class="cad-item"><div class="day">Monday</div><div class="what">Aesthetic / mood post — dust, rope, boots, whatever your shared visual language is</div></div>
+        <div class="cad-item"><div class="day">Wednesday</div><div class="what">A line of text on a plain background, no context</div></div>
+        <div class="cad-item"><div class="day">Friday</div><div class="what">Behind-the-scenes glimpse — notes, a moodboard corner, nothing identifiable</div></div>
+      </div>
+      <div class="captions">
+        <span class="cap-chip">"something's been riding into my thoughts lately"</span>
+        <span class="cap-chip">"building something a little reckless behind the scenes"</span>
+        <span class="cap-chip">"not announcing anything… just kicking up dust"</span>
+        <span class="cap-chip">"this one feels different. dustier. hungrier."</span>
+        <span class="cap-chip">"every good story needs a little rope and a little ruin"</span>
+      </div>
+      <div class="fillnote"><b>Bones, not copy —</b> swap these for your own voice, or split them across the four of you so no two accounts sound identical.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="phase1"><h2>Phase 1 — Series Reveal</h2><div class="ln"></div></div>
+  <div class="phase">
+    <div class="phase-head"><span class="pn">01</span><span class="pt">Roped in Ruin, out loud for the first time</span><span class="pd" id="p1-dates"></span></div>
+    <div class="phase-body">
+      <p class="goal">The big hook reveal — series name, the four-author lineup, and the hashtags. Hold titles, covers, and duet names for later phases.</p>
+      <div class="cadence">
+        <div class="cad-item"><div class="day">Reveal post</div><div class="what">Shared graphic, all four accounts at once — "Four authors. Four cowboys. One shared world of ruin."</div></div>
+        <div class="cad-item"><div class="day">Follow-up</div><div class="what">Each author introduces herself to the other three fanbases</div></div>
+        <div class="cad-item"><div class="day">Hashtag debut</div><div class="what">#ropedinruin live everywhere, in every bio</div></div>
+      </div>
+      <div class="fillnote"><b>Worth deciding —</b> exact reveal date and whether it's a single coordinated moment or a slow rollout across the day.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="phase2"><h2>Phase 2 — Engagement Week</h2><div class="ln"></div></div>
+  <div class="phase">
+    <div class="phase-head"><span class="pn">02</span><span class="pt">Get readers talking before there's anything to buy</span><span class="pd" id="p2-dates"></span></div>
+    <div class="phase-body">
+      <p class="goal">Polls and prompts that need an opinion, not just a like.</p>
+      <div class="captions">
+        <span class="cap-chip">"which cowboy trope has you the most feral?"</span>
+        <span class="cap-chip">"what's your biggest ick in a cowboy romance?"</span>
+        <span class="cap-chip">"which one of us do you think writes the messiest hero?"</span>
+        <span class="cap-chip">"rank them: grumpy, ruined, reckless, redeemable"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="phase3"><h2>Phase 3 — Rolling Book Spotlights</h2><div class="ln"></div></div>
+  <p class="lede">Each book gets one week in the spotlight — vibe and trope only, still no title or blurb — timed to land just before that book's own pre-order goes live.</p>
+  <div class="spot">
+    <table>
+      <thead><tr><th>Book</th><th>Spotlight week</th><th>Leads into</th></tr></thead>
+      <tbody id="spot-body"></tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="beatsheets"><h2>Then: the four book beat sheets</h2><div class="ln"></div></div>
+  <p class="lede">From each book's spotlight week onward, this is what runs — dated, detailed, ready to hand off.</p>
+  <div class="jump" id="jump-books"></div>
+  <div id="books"></div>
+
+  <footer id="footer-note"></footer>
+</div>
+
+<script>
+(function(){
+  function addDays(d,n){ const c=new Date(d); c.setDate(c.getDate()+n); return c; }
+  function daysBetween(a,b){ return Math.round((b-a)/86400000); }
+  function fmt(d){ return d.toLocaleDateString('en-US',{day:'numeric',month:'short'}); }
+  function fmtY(d){ return d.toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric'}); }
+  function fmtFull(d){ return d.toLocaleDateString('en-US',{weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  document.getElementById('f-today').textContent = fmtY(today);
+
+  const books = [
+    { id:"b1", order:1, title:"Giddy Up, Gorgeous", author:"Dahlia Grae", pen:null, release:[2027,0,23], duet:"Ruined Lies", note:"Opens the series — first impression for the whole world." },
+    { id:"b2", order:2, title:"Round 'Em Up, Rambler", author:"Nix Marie", pen:null, release:[2027,1,23], duet:"Ruined Lies", note:"Closes Ruined Lies." },
+    { id:"b3", order:3, title:"Saddle Up, Spitfire", author:"Sadie Winchester", pen:null, release:[2027,2,23], duet:"Ruined Vows", note:"Opens Ruined Vows." },
+    { id:"b4", order:4, title:"Buckle Up, Buttercup", author:"Penelope Paige", pen:null, release:[2027,3,23], duet:"Ruined Vows", note:"Closes the series — the send-off." }
+  ].map(b => ({...b, releaseDate:new Date(...b.release)}));
+
+  books.forEach(b => {
+    b.preorder = addDays(b.releaseDate, -12*7);
+    b.cover = addDays(b.releaseDate, -10*7);
+    b.arc = addDays(b.releaseDate, -4*7);
+  });
+
+  document.getElementById('f-days').textContent = Math.max(daysBetween(today, books[0].releaseDate),0) + ' days';
+
+  // top jump nav
+  const jumpTop = document.getElementById('jump-top');
+  [["overview","Overview"],["phase0","Tease"],["phase1","Reveal"],["phase2","Engagement"],["phase3","Spotlights"],["beatsheets","Beat sheets"]]
+    .forEach(([id,label]) => jumpTop.innerHTML += '<a href="#'+id+'">'+label+'</a>');
+
+  // phase windows, relative to today
+  const p0Start = today, p0End = addDays(today, 20);
+  const p1Start = addDays(today,21), p1End = addDays(today,27);
+  const p2Start = addDays(today,28), p2End = addDays(today,34);
+  document.getElementById('p0-dates').textContent = fmt(p0Start)+' – '+fmt(p0End)+' · ~3 weeks';
+  document.getElementById('p1-dates').textContent = fmt(p1Start)+' – '+fmt(p1End)+' · 1 week';
+  document.getElementById('p2-dates').textContent = fmt(p2Start)+' – '+fmt(p2End)+' · 1 week';
+
+  // spotlight windows: 1 week, ending ~10 days before each book's pre-order
+  const spotBody = document.getElementById('spot-body');
+  books.forEach(b => {
+    const spotEnd = addDays(b.preorder, -10);
+    const spotStart = addDays(spotEnd, -6);
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td class="b">'+b.title+' <span style="color:var(--ink-3);font-weight:400">— '+(b.pen||b.author)+'</span></td>'+
+      '<td class="n">'+fmt(spotStart)+' – '+fmt(spotEnd)+'</td>'+
+      '<td class="n">Pre-order '+fmtY(b.preorder)+'</td>';
+    spotBody.appendChild(tr);
+  });
+
+  // overview timeline
+  const rangeStart = new Date(2026,8,1);
+  const rangeEnd = new Date(2027,3,30);
+  const span = daysBetween(rangeStart, rangeEnd);
+  const pct = d => Math.max(0, Math.min(100, (daysBetween(rangeStart,d)/span)*100));
+  const months = ['Sep 26','Oct','Nov','Dec','Jan 27','Feb','Mar','Apr'];
+  document.getElementById('tl-months').innerHTML = months.map(m=>'<div>'+m+'</div>').join('');
+
+  let rows = '<span class="today" style="left:'+pct(today)+'%"></span>';
+  rows += '<div class="tl-row"><span class="tl-label">Series tease <em>— reveal, engagement</em></span>'+
+    '<span class="bar tease" style="left:'+pct(p0Start)+'%;right:'+(100-pct(p2End))+'%"></span></div>';
+  books.forEach(b => {
+    rows += '<div class="tl-row"><span class="tl-label">'+b.title+' <em>— '+(b.pen||b.author)+'</em></span>'+
+      '<span class="bar book" style="left:'+pct(b.preorder)+'%;right:'+(100-pct(b.releaseDate))+'%"></span>'+
+      '<span class="mk r" style="left:'+pct(b.releaseDate)+'%"><i></i><b>'+fmt(b.releaseDate)+'</b></span></div>';
+  });
+  document.getElementById('tl-body').innerHTML = rows;
+
+  // per-book beat sheets
+  function beatTemplate(b, isLast){
+    const rel = b.releaseDate;
+    return [
+      { wk:"12 weeks", name:"Pre-order live", date:addDays(rel,-12*7),
+        goal:"Get the buy link out and start banking early holds.",
+        cad:[["Announcement","Post across all platforms, buy link in bio"],["Newsletter","One-line mention with the link"],["Pin it","Pin the announcement post to the top of the grid"]],
+        caps:["“she's ready for you to fall in ruin with her”","“pre-order is LIVE”","“mark the date, this one's coming for you”"] },
+      { wk:"10 weeks", name:"Cover reveal", date:addDays(rel,-10*7),
+        goal:"First real visual. Still no blurb.",
+        cad:[["Mon","Partial crop / tease of the cover"],["Wed","Full cover reveal, all platforms"],["Fri","Styled aesthetic carousel built around the cover"]],
+        caps:["“say hello to her face”","“this cover took my breath away”","“swipe for the vibe check”"] },
+      { wk:"8 weeks", name:"Blurb reveal", date:addDays(rel,-8*7),
+        goal:"Give readers the actual hook.",
+        cad:[["Mon","One line pulled from the blurb, no context"],["Wed","Full blurb reveal graphic"],["Fri","“if you like ___ you'll love this” comp-title post"]],
+        caps:[], blank:true },
+      { wk:"6 weeks", name:"Meet the leads", date:addDays(rel,-6*7),
+        goal:"Build attachment to the characters before the plot matters.",
+        cad:[["Mon","Lead 1 — moodboard / aesthetic"],["Wed","Lead 2 — moodboard / aesthetic"],["Fri","Dynamic / trope energy — no names, just vibe"]],
+        caps:["“the kind of man who...”","“she would burn it down for...”","celebrity-doppelgänger post"],
+        note:"If this is the trio book, add a fourth post for the third lead before Friday's dynamic post." },
+      { wk:"4 weeks", name:"ARCs out", date:addDays(rel,-4*7),
+        goal:"Get reviews queued up before release day.",
+        cad:[["Send","Files out to this book's ARC team"],["Reminder","Last call for ARC sign-ups, if still open"],["Reshare","Early reader reactions as they trickle in"]],
+        caps:[], note:"This book runs its own ARC team — cross-promote the sign-up, but the list itself stays separate." },
+      { wk:"2 weeks", name:"Teaser + trope stack", date:addDays(rel,-2*7),
+        goal:"Give the fence-sitters a reason to commit.",
+        cad:[["Mon","First line / first page teaser, no context"],["Wed","Trope list + trigger warnings, stated plainly"],["Fri","Quote-card pull from an early ARC review"]],
+        caps:[], blank:true },
+      { wk:"1 week", name:"Countdown", date:addDays(rel,-7),
+        goal:"Urgency, without giving away anything new.",
+        cad:[["Daily stories","7 / 3 / 1 days out"],["Repost","Best early reviews so far"],["Comp post","“if you loved ___, you'll love this”"]],
+        caps:[] },
+      { wk:"Release day", name:"It's live", date:rel, rel:true,
+        goal:"All four accounts post. Buy link everywhere.",
+        cad:[["Morning","Launch post on all four accounts"],["Newsletter","Release blast to all four lists"],["All day","Stories — behind the scenes, thank-yous, reader reactions"]],
+        caps:["“SHE'S OUT”","“go fall in ruin”"] },
+      isLast
+        ? { wk:"+1 week", name:"Series send-off", date:addDays(rel,7),
+            goal:"Roped in Ruin is fully out in the world — close the loop.",
+            cad:[["Recap post","All four books, all four covers, one graphic"],["Thank you","To readers, ARC teams, and each other"],["Reading order","Pin it somewhere permanent — landing page, bios, pinned post"]],
+            caps:[] }
+        : { wk:"+1 week", name:"The handoff", date:addDays(rel,7),
+            goal:"Carry the momentum straight into the next release.",
+            cad:[["Post","“next up in Roped in Ruin” pointing at the next book's pre-order link"],["Back matter","Confirm the next book's link is already in this one's back matter"]],
+            caps:[] }
+    ];
+  }
+
+  const jumpBooks = document.getElementById('jump-books');
+  const container = document.getElementById('books');
+
+  books.forEach(b => {
+    jumpBooks.innerHTML += '<a href="#'+b.id+'">'+String(b.order).padStart(2,'0')+' · '+b.title+'</a>';
+
+    const daysOut = daysBetween(today, b.releaseDate);
+    const section = document.createElement('section');
+    section.className = 'booksec';
+    section.id = b.id;
+
+    let head = '<div class="book-head">'+
+      '<div class="ord">BOOK '+String(b.order).padStart(2,'0')+'</div>'+
+      '<h3>'+b.title+'</h3>'+
+      '<div class="by">'+b.author+(b.pen?', writing as <em>'+b.pen+'</em>':'')+'</div>'+
+      '<div class="pillrow">'+
+        '<span class="pill me">'+b.duet+'</span>'+
+        '<span class="pill rel">Releases '+fmtFull(b.releaseDate)+'</span>'+
+        '<span class="pill">'+(daysOut>=0? daysOut+' days out':'released')+'</span>'+
+      '</div>'+
+      '<div class="beat-note" style="margin-top:12px;border-top:none;padding-top:0">'+b.note+'</div>'+
+    '</div>';
+
+    let beatsHtml = '<div class="beats">';
+    beatTemplate(b, b.order===4).forEach(row => {
+      beatsHtml += '<div class="beat'+(row.rel?' rel':'')+'">'+
+        '<div class="beat-top"><span class="wk">'+row.wk+'</span><span class="nm">'+row.name+'</span><span class="dt">'+fmtFull(row.date)+'</span></div>'+
+        '<div class="beat-goal">'+row.goal+'</div>'+
+        '<div class="cadence">'+row.cad.map(c=>'<div class="cad-item"><div class="day">'+c[0]+'</div><div class="what">'+c[1]+'</div></div>').join('')+'</div>';
+      if(row.blank){
+        beatsHtml += '<div class="captions"><span class="cap-chip blank">Book-specific — fill in once the blurb/trope list exists</span></div>';
+      } else if(row.caps && row.caps.length){
+        beatsHtml += '<div class="captions">'+row.caps.map(c=>'<span class="cap-chip">'+c+'</span>').join('')+'</div>';
+      }
+      if(row.note){
+        beatsHtml += '<div class="beat-note"><b>Note —</b> '+row.note+'</div>';
+      }
+      beatsHtml += '</div>';
+    });
+    beatsHtml += '</div>';
+
+    section.innerHTML = head + beatsHtml;
+    container.appendChild(section);
+  });
+
+  document.getElementById('footer-note').textContent =
+    "Phase 0–2 dates are relative to whenever this page is opened, so they'll stay current if you revisit it. Spotlight windows and every book beat-sheet date are computed from the confirmed release dates and the 12/10/4-week cadence. Everything here is a starting structure — swap in real dates, assets, and copy as the group locks them in.";
+})();
+</script>
+
+</body>
+</html>
