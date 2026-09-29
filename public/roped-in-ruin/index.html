@@ -151,23 +151,13 @@
     /* Cover slot. When art is final, swap this <div> for:
        <img class="cover" src="covers/buckle-up-buttercup.jpg"
             alt="Buckle Up, Buttercup" width="78" height="117" /> */
-    .cover, .cover-ph {
+    .cover {
       flex-shrink: 0;
       width: 78px;
       aspect-ratio: 2 / 3;
       border-radius: 3px;
       object-fit: cover;
-    }
-    .cover-ph {
-      display: grid;
-      place-items: center;
-      background: linear-gradient(155deg, #241019 0%, #0e070b 100%);
-      box-shadow: inset 0 0 0 1px rgba(216,201,180,0.10), 0 6px 16px rgba(0,0,0,0.5);
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--faint);
-      letter-spacing: 0.04em;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
     }
 
     .book-main { flex: 1; min-width: 0; }
@@ -332,7 +322,7 @@
       <p class="set-head">Where it starts</p>
 
       <article class="book">
-        <div class="cover-ph">R&middot;R</div>
+        <img class="cover" src="covers/ruined-joy.jpg" alt="Ruined Joy cover" width="78" height="117" loading="lazy" decoding="async" />
         <div class="book-main">
           <p class="book-idx">00 &middot; Prequel</p>
           <h2 class="book-title">Ruined Joy</h2>
@@ -348,7 +338,7 @@
       <p class="set-head">Ruined Lies <span>&middot; a duet</span></p>
 
       <article class="book">
-        <div class="cover-ph">R&middot;R</div>
+        <img class="cover" src="covers/giddy-up-gorgeous.jpg" alt="Giddy Up, Gorgeous cover" width="78" height="117" loading="lazy" decoding="async" />
         <div class="book-main">
           <p class="book-idx">01</p>
           <h2 class="book-title">Giddy Up, Gorgeous</h2>
@@ -358,7 +348,7 @@
       </article>
 
       <article class="book">
-        <div class="cover-ph">R&middot;R</div>
+        <img class="cover" src="covers/round-em-up-rambler.jpg" alt="Round 'Em Up, Rambler cover" width="78" height="117" loading="lazy" decoding="async" />
         <div class="book-main">
           <p class="book-idx">02</p>
           <h2 class="book-title">Round &rsquo;Em Up, Rambler</h2>
@@ -370,7 +360,7 @@
       <p class="set-head">Ruined Vows <span>&middot; a duet</span></p>
 
       <article class="book">
-        <div class="cover-ph">R&middot;R</div>
+        <img class="cover" src="covers/saddle-up-spitfire.jpg" alt="Saddle Up, Spitfire cover" width="78" height="117" loading="lazy" decoding="async" />
         <div class="book-main">
           <p class="book-idx">03</p>
           <h2 class="book-title">Saddle Up, Spitfire</h2>
@@ -380,7 +370,7 @@
       </article>
 
       <article class="book">
-        <div class="cover-ph">R&middot;R</div>
+        <img class="cover" src="covers/buckle-up-buttercup.jpg" alt="Buckle Up, Buttercup cover" width="78" height="117" loading="lazy" decoding="async" />
         <div class="book-main">
           <p class="book-idx">04</p>
           <h2 class="book-title">Buckle Up, Buttercup</h2>
