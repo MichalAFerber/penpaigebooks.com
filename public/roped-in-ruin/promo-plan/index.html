@@ -216,14 +216,14 @@ body.locked .mast,body.locked .wrap{display:none}
 <div class="wrap">
 
   <div class="sec" id="overview"><h2>The whole runway, at a glance</h2><div class="ln"></div></div>
-  <p class="lede">The tease sits up front, series-wide. Once it hands off, each book runs its own confirmed cadence — pre-order at 12 weeks out, cover at 10, ARCs at 4 — staggered because the releases are.</p>
+  <p class="lede">The tease sits up front, series-wide. Once it hands off, each book runs its own confirmed cadence — cover reveal at 10 weeks out, ARCs at 4 — staggered because the releases are.</p>
   <div class="tl-scroll">
     <div class="tl">
       <div class="tl-months" id="tl-months"></div>
       <div class="tl-body" id="tl-body"></div>
       <div class="key">
         <span class="kt"><i></i> Series tease / reveal / engagement</span>
-        <span class="kb"><i></i> Book's own pre-order → ARC window</span>
+        <span class="kb"><i></i> Book's own cover reveal → release window</span>
         <span class="kr"><i></i> Release day</span>
       </div>
     </div>
@@ -279,7 +279,7 @@ body.locked .mast,body.locked .wrap{display:none}
   </div>
 
   <div class="sec" id="phase3"><h2>Phase 3 — Rolling Book Spotlights</h2><div class="ln"></div></div>
-  <p class="lede">Each book gets one week in the spotlight — vibe and trope only, still no title or blurb — timed to land just before that book's own pre-order goes live.</p>
+  <p class="lede">Each book gets one week in the spotlight — vibe and trope only, still no title or blurb — timed to land just before that book's own cover reveal.</p>
   <div class="spot">
     <table>
       <thead><tr><th>Book</th><th>Spotlight week</th><th>Leads into</th></tr></thead>
@@ -314,7 +314,6 @@ body.locked .mast,body.locked .wrap{display:none}
   ].map(b => ({...b, releaseDate:new Date(...b.release)}));
 
   books.forEach(b => {
-    b.preorder = addDays(b.releaseDate, -12*7);
     b.cover = addDays(b.releaseDate, -10*7);
     b.arc = addDays(b.releaseDate, -4*7);
   });
@@ -334,15 +333,15 @@ body.locked .mast,body.locked .wrap{display:none}
   document.getElementById('p1-dates').textContent = fmt(p1Start)+' – '+fmt(p1End)+' · 1 week';
   document.getElementById('p2-dates').textContent = fmt(p2Start)+' – '+fmt(p2End)+' · 1 week';
 
-  // spotlight windows: 1 week, ending ~10 days before each book's pre-order
+  // spotlight windows: 1 week, ending ~10 days before each book's cover reveal
   const spotBody = document.getElementById('spot-body');
   books.forEach(b => {
-    const spotEnd = addDays(b.preorder, -10);
+    const spotEnd = addDays(b.cover, -10);
     const spotStart = addDays(spotEnd, -6);
     const tr = document.createElement('tr');
     tr.innerHTML = '<td class="b">'+b.title+' <span style="color:var(--ink-3);font-weight:400">— '+(b.pen||b.author)+'</span></td>'+
       '<td class="n">'+fmt(spotStart)+' – '+fmt(spotEnd)+'</td>'+
-      '<td class="n">Pre-order '+fmtY(b.preorder)+'</td>';
+      '<td class="n">Cover reveal '+fmtY(b.cover)+'</td>';
     spotBody.appendChild(tr);
   });
 
@@ -359,7 +358,7 @@ body.locked .mast,body.locked .wrap{display:none}
     '<span class="bar tease" style="left:'+pct(p0Start)+'%;right:'+(100-pct(p2End))+'%"></span></div>';
   books.forEach(b => {
     rows += '<div class="tl-row"><span class="tl-label">'+b.title+' <em>— '+(b.pen||b.author)+'</em></span>'+
-      '<span class="bar book" style="left:'+pct(b.preorder)+'%;right:'+(100-pct(b.releaseDate))+'%"></span>'+
+      '<span class="bar book" style="left:'+pct(b.cover)+'%;right:'+(100-pct(b.releaseDate))+'%"></span>'+
       '<span class="mk r" style="left:'+pct(b.releaseDate)+'%"><i></i><b>'+fmt(b.releaseDate)+'</b></span></div>';
   });
   document.getElementById('tl-body').innerHTML = rows;
@@ -368,10 +367,6 @@ body.locked .mast,body.locked .wrap{display:none}
   function beatTemplate(b, isLast){
     const rel = b.releaseDate;
     return [
-      { wk:"12 weeks", name:"Pre-order live", date:addDays(rel,-12*7),
-        goal:"Get the buy link out and start banking early holds.",
-        cad:[["Announcement","Post across all platforms, buy link in bio"],["Newsletter","One-line mention with the link"],["Pin it","Pin the announcement post to the top of the grid"]],
-        caps:["“she's ready for you to fall in ruin with her”","“pre-order is LIVE”","“mark the date, this one's coming for you”"] },
       { wk:"10 weeks", name:"Cover reveal", date:addDays(rel,-10*7),
         goal:"First real visual. Still no blurb.",
         cad:[["Mon","Partial crop / tease of the cover"],["Wed","Full cover reveal, all platforms"],["Fri","Styled aesthetic carousel built around the cover"]],
@@ -408,7 +403,7 @@ body.locked .mast,body.locked .wrap{display:none}
             caps:[] }
         : { wk:"+1 week", name:"The handoff", date:addDays(rel,7),
             goal:"Carry the momentum straight into the next release.",
-            cad:[["Post","“next up in Roped in Ruin” pointing at the next book's pre-order link"],["Back matter","Confirm the next book's link is already in this one's back matter"]],
+            cad:[["Post","“next up in Roped in Ruin” pointing at the next book's cover and release date"],["Back matter","Confirm the next book's title and link are in this one's back matter"]],
             caps:[] }
     ];
   }
@@ -459,7 +454,7 @@ body.locked .mast,body.locked .wrap{display:none}
   });
 
   document.getElementById('footer-note').textContent =
-    "Phase 0–2 dates are relative to whenever this page is opened, so they'll stay current if you revisit it. Spotlight windows and every book beat-sheet date are computed from the confirmed release dates and the 12/10/4-week cadence. Everything here is a starting structure — swap in real dates, assets, and copy as the group locks them in.";
+    "Phase 0–2 dates are relative to whenever this page is opened, so they'll stay current if you revisit it. Spotlight windows and every book beat-sheet date are computed from the confirmed release dates and the 10/4-week cadence. Everything here is a starting structure — swap in real dates, assets, and copy as the group locks them in.";
 })();
 </script>
 
