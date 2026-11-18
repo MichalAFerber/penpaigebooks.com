@@ -12,12 +12,17 @@ Everything served is in `public/`:
 - `pen_signature_tx.svg`, `bg.png` — the signature mark and background.
 - `favicon.svg`, `favicon.ico`, `favicon-16.png`, `favicon-32.png`,
   `apple-touch-icon.png` — the icon set.
+- `robots.txt`, `sitemap-index.xml`, `sitemap.xml` — the crawler files. The
+  sitemap is hand-written: a new page needs its own `<url>` entry with a
+  `lastmod`, and CI fails until it has one.
+- `_headers` — noindexes the `pages.dev` hosts, which serve the same pages.
 
 ## Deploying
 
 Cloudflare Pages builds from `main` via the Git integration, publishing `public/`
 — one deploy path, no Actions deploy step (§4). Pull requests are gated by the
-`ci` workflow, which checks every HTML file parses.
+`ci` workflow, which checks every HTML file parses and the sitemap lists every
+indexable page.
 
 ## License
 
