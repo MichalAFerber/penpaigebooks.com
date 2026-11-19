@@ -1,0 +1,8 @@
+# pages.dev is never a canonical host (DS §11). Cloudflare noindexes PREVIEW
+# deployments only; the production <project>.pages.dev serves the same pages
+# as penpaigebooks.com and is indexable without this.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

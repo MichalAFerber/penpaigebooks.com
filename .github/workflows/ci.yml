@@ -39,3 +39,42 @@ jobs:
           echo "checked $n HTML files"
           [ "$n" -gt 0 ] || { echo "::error::no HTML found — has the layout changed?"; exit 1; }
           exit $fail
+
+      # DS §11: robots.txt names the sitemap index, and the sitemap lists every
+      # indexable page (each with a lastmod) and nothing else. The sitemap is
+      # hand-written, so this is what catches a page added without an entry.
+      - name: robots.txt and sitemaps
+        run: |
+          python3 <<'EOF'
+          import pathlib, re, sys
+          import xml.etree.ElementTree as ET
+          ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          site = "https://penpaigebooks.com"
+          pub = pathlib.Path("public")
+          errors = []
+          if f"Sitemap: {site}/sitemap-index.xml" not in (pub / "robots.txt").read_text().splitlines():
+              errors.append("robots.txt does not name the sitemap index")
+          index = [e.text for e in ET.parse(pub / "sitemap-index.xml").findall("s:sitemap/s:loc", ns)]
+          if index != [f"{site}/sitemap.xml"]:
+              errors.append(f"sitemap-index.xml lists {index}, expected only {site}/sitemap.xml")
+          listed = {}
+          for u in ET.parse(pub / "sitemap.xml").findall("s:url", ns):
+              lastmod = u.findtext("s:lastmod", namespaces=ns) or ""
+              if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", lastmod):
+                  errors.append(f"{u.findtext('s:loc', namespaces=ns)}: lastmod {lastmod!r} is not YYYY-MM-DD")
+              listed[u.findtext("s:loc", namespaces=ns)] = lastmod
+          pages = set()
+          for f in pub.rglob("*.html"):
+              if f.name == "404.html" or re.search(r'<meta name="robots" content="[^"]*noindex', f.read_text(encoding="utf-8")):
+                  continue
+              rel = f.relative_to(pub).as_posix()
+              pages.add(f"{site}/" + (rel[: -len("index.html")] if rel.endswith("index.html") else rel[: -len(".html")]))
+          for p in sorted(pages - listed.keys()):
+              errors.append(f"{p} is indexable but missing from sitemap.xml")
+          for p in sorted(listed.keys() - pages):
+              errors.append(f"sitemap.xml lists {p}, which is not an indexable page")
+          for e in errors:
+              print(f"::error::{e}")
+          print(f"sitemap: {len(listed)} URLs, {len(pages)} indexable pages")
+          sys.exit(1 if errors else 0)
+          EOF
