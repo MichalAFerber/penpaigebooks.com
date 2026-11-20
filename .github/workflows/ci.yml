@@ -43,11 +43,30 @@ jobs:
       # DS §11: robots.txt names the sitemap index, and the sitemap lists every
       # indexable page (each with a lastmod) and nothing else. The sitemap is
       # hand-written, so this is what catches a page added without an entry.
-      - name: robots.txt and sitemaps
+      # Each indexable page carries exactly one canonical, in <head>, naming its
+      # own sitemap URL (og:url, where present, names the same URL). A noindex
+      # page carries none: a canonical there would contradict the noindex.
+      - name: robots.txt, sitemaps, and canonicals
         run: |
           python3 <<'EOF'
           import pathlib, re, sys
           import xml.etree.ElementTree as ET
+          from html.parser import HTMLParser
+          class Head(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.in_head, self.canonicals, self.og_urls = False, [], []
+              def handle_starttag(self, tag, attrs):
+                  a = dict(attrs)
+                  if tag in ("head", "body"):
+                      self.in_head = tag == "head"
+                  elif tag == "link" and "canonical" in (a.get("rel") or "").lower().split():
+                      self.canonicals.append((a.get("href"), self.in_head))
+                  elif tag == "meta" and a.get("property") == "og:url":
+                      self.og_urls.append(a.get("content"))
+              def handle_endtag(self, tag):
+                  if tag == "head":
+                      self.in_head = False
           ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
           site = "https://penpaigebooks.com"
           pub = pathlib.Path("public")
@@ -65,10 +84,25 @@ jobs:
               listed[u.findtext("s:loc", namespaces=ns)] = lastmod
           pages = set()
           for f in pub.rglob("*.html"):
-              if f.name == "404.html" or re.search(r'<meta name="robots" content="[^"]*noindex', f.read_text(encoding="utf-8")):
-                  continue
+              text = f.read_text(encoding="utf-8")
               rel = f.relative_to(pub).as_posix()
-              pages.add(f"{site}/" + (rel[: -len("index.html")] if rel.endswith("index.html") else rel[: -len(".html")]))
+              head = Head()
+              head.feed(text)
+              if f.name == "404.html" or re.search(r'<meta name="robots" content="[^"]*noindex', text):
+                  if head.canonicals:
+                      errors.append(f"{rel} is noindex but carries a canonical")
+                  continue
+              url = f"{site}/" + (rel[: -len("index.html")] if rel.endswith("index.html") else rel[: -len(".html")])
+              pages.add(url)
+              if len(head.canonicals) != 1:
+                  errors.append(f"{rel} has {len(head.canonicals)} canonical links, expected exactly 1")
+              elif not head.canonicals[0][1]:
+                  errors.append(f"{rel}: the canonical link is outside <head>")
+              elif head.canonicals[0][0] != url:
+                  errors.append(f"{rel}: canonical {head.canonicals[0][0]!r} is not its sitemap URL {url}")
+              for og in head.og_urls:
+                  if og != url:
+                      errors.append(f"{rel}: og:url {og!r} is not its canonical {url}")
           for p in sorted(pages - listed.keys()):
               errors.append(f"{p} is indexable but missing from sitemap.xml")
           for p in sorted(listed.keys() - pages):
