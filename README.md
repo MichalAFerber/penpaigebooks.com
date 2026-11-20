@@ -23,8 +23,9 @@ Everything served is in `public/`:
 
 ## Deploying
 
-Cloudflare Pages builds from `main` via the Git integration, publishing `public/`
-— one deploy path, no Actions deploy step (§4). Pull requests are gated by the
+`.github/workflows/deploy.yml` publishes `public/` to the Cloudflare Pages project
+`penpaigebooks` (`wrangler pages deploy`) on every push to `main`, so a merge is a
+production deploy. Pull requests are gated by the
 `ci` workflow, which checks every HTML file parses, the sitemap lists every
 indexable page, and each such page names its sitemap URL as its canonical.
 
