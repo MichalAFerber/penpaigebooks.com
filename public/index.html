@@ -210,6 +210,26 @@
       font-style: normal;
     }
 
+    /* <main> lays its children out as .frame does; the footer stays outside it, as contentinfo. */
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* The name is painted into bg.png; the <h1> carries it as text for screen readers and search. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .link-card, .link-arrow { transition: none; }
     }
@@ -218,6 +238,9 @@
 <body>
 
   <div class="frame">
+
+  <main>
+  <h1 class="visually-hidden">Penelope Paige</h1>
 
   <p class="section-label">Read my books</p>
   <nav class="links">
@@ -260,6 +283,7 @@
       <span class="link-arrow">→</span>
     </a>
   </nav>
+  </main>
 
   <footer class="footer">
     <p class="footer-quote">
