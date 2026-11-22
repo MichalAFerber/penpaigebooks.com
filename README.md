@@ -29,6 +29,10 @@ production deploy. Pull requests are gated by the
 `ci` workflow, which checks every HTML file parses, the sitemap lists every
 indexable page, and each such page names its sitemap URL as its canonical.
 
+## Deviations
+
+- §1—Social meta MUST set `twitter:creator` = `@michalaferber`—Penelope Paige is a client's pen name, and the tag would publicly tie it to Michal's handle; the card names `@penpaigebooks` as `twitter:site` instead—2026-11-21—permanent
+
 ## License
 
 MIT — see [`LICENSE`](./LICENSE).

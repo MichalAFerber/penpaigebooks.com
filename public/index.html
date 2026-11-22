@@ -8,6 +8,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#9a9498" />
   <title>Penelope Paige</title>
   <meta name="description" content="Penelope Paige: 10 titles on Kindle Unlimited — short, spicy, and completely unhinged. Writing the women I needed when I was younger. Better late than never." />
   <link rel="canonical" href="https://penpaigebooks.com/" />
@@ -17,6 +19,12 @@
   <meta property="og:title" content="Penelope Paige" />
   <meta property="og:description" content="Penelope Paige: 10 titles on Kindle Unlimited — short, spicy, and completely unhinged. Writing the women I needed when I was younger. Better late than never." />
   <meta property="og:url" content="https://penpaigebooks.com/" />
+  <meta property="og:image" content="https://penpaigebooks.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Penelope Paige: Writing the women I needed when I was younger. Better late than never." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@penpaigebooks" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -204,6 +212,26 @@
       font-style: normal;
     }
 
+    /* <main> lays its children out as .frame does; the footer stays outside it, as contentinfo. */
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* The name is painted into bg.png; the <h1> carries it as text for screen readers and search. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .link-card, .link-arrow { transition: none; }
     }
@@ -212,6 +240,9 @@
 <body>
 
   <div class="frame">
+
+  <main>
+  <h1 class="visually-hidden">Penelope Paige</h1>
 
   <p class="section-label">Read my books</p>
   <nav class="links">
@@ -254,6 +285,7 @@
       <span class="link-arrow">→</span>
     </a>
   </nav>
+  </main>
 
   <footer class="footer">
     <p class="footer-quote">
