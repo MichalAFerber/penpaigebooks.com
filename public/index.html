@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#140A11" />
+  <meta name="theme-color" content="#FBF5EE" />
   <title>Penelope Paige</title>
   <meta name="description" content="Penelope Paige: 10 titles on Kindle Unlimited — short, spicy, and completely unhinged. Writing the women I needed when I was younger. Better late than never." />
   <link rel="canonical" href="https://penpaigebooks.com/" />
@@ -35,297 +35,289 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Josefin+Sans:wght@400;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="/img/wordmark.webp" type="image/webp" />
   <link rel="stylesheet" href="/css/site.css" />
   <script defer data-domain="penpaigebooks.com" src="https://plausible.thompsonblack.us/js/script.outbound-links.file-downloads.tagged-events.js"></script>
   <style>
-    /* ── Hero ── */
+    /* ── Hero: the rumpled sheets, with a cream panel laid on top ── */
     .hero {
       position: relative;
-      isolation: isolate;
-      min-height: min(92svh, 820px);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      min-height: clamp(460px, 72vh, 700px);
+      display: grid; place-items: center;
+      padding: clamp(2.5rem, 7vw, 4.5rem) var(--gutter);
+      background: #E9E3E0 url("/img/sheets.jpg") center 40% / cover no-repeat;
     }
-    /* The rumpled bedsheets, pushed into the dark and warmed with the brand red */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0; z-index: -2;
-      background: url("/img/sheets.jpg") center 35% / cover no-repeat;
-      filter: grayscale(1) contrast(1.15) brightness(.62);
+    .hero::before {   /* warm the gray sheets toward blush */
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(160deg, #F6D3CF 0%, #EDB9BF 55%, #E3A3B2 100%);
+      mix-blend-mode: multiply; opacity: .62;
     }
-    .hero::after {
-      content: '';
-      position: absolute; inset: 0; z-index: -1;
-      background:
-        radial-gradient(70% 55% at 50% 42%, rgba(200, 32, 58, .28) 0%, transparent 70%),
-        linear-gradient(180deg, rgba(20, 10, 17, .72) 0%, rgba(30, 10, 22, .55) 40%, var(--ink) 100%);
-      mix-blend-mode: normal;
-    }
-    .hero-body {
-      flex: 1;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    .panel {
+      position: relative;
+      width: min(100%, 560px);
+      background: var(--paper);
+      padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
       text-align: center;
-      padding-block: clamp(2rem, 8vw, 4rem) clamp(4rem, 10vw, 6rem);
+      outline: 1.5px solid var(--red); outline-offset: -12px;
+      box-shadow: 0 30px 60px -30px rgba(94, 21, 41, .45);
     }
-    .hero h1 { width: min(100%, 680px); }
-    .hero h1 img {
-      width: 100%; height: auto;
-      filter: drop-shadow(0 14px 30px rgba(0,0,0,.55));
-    }
-    .hero .tag {
-      margin-top: clamp(1rem, 3vw, 1.5rem);
-      font-size: clamp(.68rem, 2.4vw, .85rem);
-      font-weight: 500; letter-spacing: .32em; text-transform: uppercase;
-      color: var(--blue);
-    }
-    .hero .pitch {
-      margin-top: clamp(1.4rem, 4vw, 2rem);
-      font-family: var(--serif); font-weight: 300; font-style: italic;
-      font-size: clamp(1.15rem, 4vw, 1.5rem); line-height: 1.4;
-      color: var(--cream); max-width: 30ch; text-wrap: balance;
-    }
-    .hero .ctas { margin-top: clamp(1.75rem, 5vw, 2.5rem); display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
-    .hero .ctas .btn-ghost { background: rgba(20, 10, 17, .35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-    @media (max-width: 420px) { .hero .ctas .btn { width: 100%; } }
+    .panel .script { font-size: clamp(2.5rem, 9vw, 3.8rem); }
+    .panel .headline { color: var(--red); font-size: clamp(3.2rem, 13vw, 5.6rem); }
+    .panel p:not([class]) { margin: 1.1rem auto 0; max-width: 30ch; color: var(--ink-2); font-size: 1.05rem; }
+    .panel .btn { margin-top: 1.6rem; }
 
-    .scroll-cue {
-      position: absolute; left: 50%; bottom: 1.25rem; transform: translateX(-50%);
-      width: 1px; height: 42px;
-      background: linear-gradient(180deg, transparent, var(--rose));
-      animation: cue 2.4s var(--ease) infinite;
+    /* ── Latest release ── */
+    .latest { background: var(--blush); }
+    .latest .wrap {
+      display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2.25rem, 7vw, 5.5rem); align-items: center;
+      padding-block: clamp(3.5rem, 9vw, 6rem);
     }
-    @keyframes cue { 0%, 100% { opacity: .2; transform: translateX(-50%) scaleY(.6); transform-origin: top; } 50% { opacity: 1; transform: translateX(-50%) scaleY(1); } }
-
-    main { overflow-x: clip; }
-
-    /* ── Featured release ── */
-    .feature {
-      display: grid;
-      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-      gap: clamp(2rem, 6vw, 4.5rem);
-      align-items: center;
-    }
-    .feature-cover { position: relative; }
-    .feature-cover::before {
-      content: ''; position: absolute; inset: 12% -10% -6% -10%; z-index: -1;
-      background: radial-gradient(closest-side, rgba(200, 32, 58, .45), transparent);
-      filter: blur(20px);
-    }
-    .feature-cover .cover { transform: rotate(-2deg); }
-    .feature .display { font-size: clamp(2.5rem, 7vw, 4.25rem); margin-top: .85rem; }
-    .feature .series {
-      margin-top: 1rem; color: var(--cream-2);
-      font-family: var(--serif); font-style: italic; font-size: 1.15rem;
-    }
-    .feature .lede { margin-top: 1.1rem; }
-    .meta {
-      margin-top: 1.75rem; display: grid; grid-template-columns: repeat(2, max-content);
-      border-block: 1px solid var(--line);
-    }
-    .meta > div { padding: .85rem 1.75rem .85rem 0; }
-    .meta > div + div { padding-left: 1.75rem; border-left: 1px solid var(--line); }
-    .meta dt { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-    .meta dd { margin: .15rem 0 0; font-family: var(--serif); font-size: 1.15rem; }
-    .feature .ctas { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .75rem; }
-
-    .shelf { margin-top: 2.5rem; }
-    .shelf p { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; }
-    .shelf a { display: grid; grid-template-columns: repeat(4, 1fr); gap: .65rem; text-decoration: none; max-width: 380px; }
-    .shelf img { transition: transform .25s var(--ease); }
-    .shelf a:hover img { transform: translateY(-4px); }
-    .shelf a:hover img:nth-child(2) { transition-delay: .03s; }
-    .shelf a:hover img:nth-child(3) { transition-delay: .06s; }
-    .shelf a:hover img:nth-child(4) { transition-delay: .09s; }
-
+    .latest .book3d { max-width: 360px; justify-self: center; transform: rotate(-3deg); }
+    .latest .headline { color: var(--wine); }
+    .latest .label { color: var(--red); margin-top: 1.1rem; }
+    .latest p:not([class]) { margin-top: 1rem; max-width: 44ch; color: var(--ink-2); }
+    .latest .facts { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .4rem 2rem; }
+    .latest .facts dt { font-family: var(--label); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); }
+    .latest .facts dd { font-weight: 600; font-size: 1.2rem; color: var(--wine); }
+    .latest .ctas { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .75rem; }
     @media (max-width: 760px) {
-      .feature { grid-template-columns: 1fr; }
-      .feature-cover { width: min(64%, 260px); margin-inline: auto; }
+      .latest .wrap { grid-template-columns: 1fr; text-align: center; }
+      .latest .book3d { width: min(66%, 260px); }
+      .latest p:not([class]) { margin-inline: auto; }
+      .latest .facts, .latest .ctas { justify-content: center; }
     }
 
-    /* ── Kindle Unlimited band ── */
-    .ku {
-      position: relative; overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 6px);
-      background:
-        radial-gradient(80% 120% at 100% 0%, rgba(229, 138, 170, .16), transparent 60%),
-        linear-gradient(135deg, var(--ink-3), var(--ink-2));
-      padding: clamp(1.75rem, 6vw, 3.25rem);
-      display: grid; grid-template-columns: auto 1fr auto; gap: clamp(1.25rem, 4vw, 2.5rem); align-items: center;
+    /* ── Series row ── */
+    .series { padding-block: clamp(3.5rem, 9vw, 6rem); text-align: center; }
+    .series .headline { color: var(--red); }
+    .series .sub { margin: 1.1rem auto 0; max-width: 46ch; color: var(--ink-2); }
+    .shelf {
+      margin-top: clamp(2.25rem, 6vw, 3.5rem);
+      display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.9rem, 2.5vw, 2rem);
+      text-align: left;
     }
-    .ku .count {
-      font-family: var(--serif); font-weight: 600; font-size: clamp(4rem, 14vw, 7rem); line-height: .85;
-      color: var(--rose); letter-spacing: -.04em;
-    }
-    .ku h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.1; }
-    .ku p { margin-top: .5rem; color: var(--cream-2); font-weight: 300; }
-    @media (max-width: 700px) {
-      .ku { grid-template-columns: auto 1fr; }
-      .ku .btn { grid-column: 1 / -1; }
-    }
-
-    /* ── Socials ── */
-    .socials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .social {
-      display: flex; flex-direction: column; gap: 1.4rem;
-      padding: 1.5rem; min-height: 190px;
-      border: 1px solid var(--line); border-radius: var(--radius);
-      background: var(--ink-2);
-      text-decoration: none;
-      transition: border-color .2s, background .2s, transform .25s var(--ease);
-    }
-    .social:hover { border-color: var(--rose); background: var(--ink-3); transform: translateY(-3px); }
-    .social .top { display: flex; justify-content: space-between; align-items: center; color: var(--rose); }
-    .social .arr { color: var(--muted); transition: color .2s, transform .2s var(--ease); }
-    .social:hover .arr { color: var(--rose); transform: translate(3px, -3px); }
-    .social .name { margin-top: auto; font-family: var(--serif); font-size: 1.4rem; line-height: 1.15; }
-    .social .handle { display: block; margin-top: .1rem; font-size: .8rem; color: var(--muted); letter-spacing: .02em; }
-    .social .sub { margin-top: .5rem; font-size: .92rem; color: var(--cream-2); font-weight: 300; line-height: 1.45; }
+    .shelf a { text-decoration: none; display: block; }
+    .shelf .book3d { transition: transform .3s var(--ease); }
+    .shelf a:hover .book3d { transform: translateY(-6px) rotate(-1.5deg); }
+    .shelf .t { display: block; margin-top: 1rem; font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+    .shelf .d { display: block; margin-top: .3rem; font-family: var(--label); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--red); }
+    .series .btn { margin-top: clamp(2.25rem, 5vw, 3rem); }
     @media (max-width: 760px) {
-      .socials { grid-template-columns: 1fr; gap: .75rem; }
-      .social { min-height: 0; flex-direction: row; align-items: center; gap: 1rem; padding: 1.1rem 1.2rem; }
-      .social .top { order: 0; }
-      .social .top .arr { display: none; }
-      .social .txt { flex: 1; }
-      .social .name { font-size: 1.2rem; }
-      .social .handle { display: none; }
-      .social .sub { margin-top: .15rem; font-size: .85rem; }
+      .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .shelf li:first-child { grid-column: 1 / -1; width: calc(50% - .45rem); margin-inline: auto; }
     }
+
+    /* ── Kindle Unlimited: red block with a polaroid of the sheets ── */
+    .ku { background: var(--red); color: var(--paper); overflow: hidden; }
+    .ku .wrap {
+      display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(2.5rem, 8vw, 6rem); align-items: center;
+      padding-block: clamp(3.5rem, 9vw, 6rem);
+    }
+    .polaroid {
+      justify-self: center; width: min(100%, 360px);
+      background: #FFFDF9; padding: 14px 14px 64px;
+      transform: rotate(-4deg);
+      box-shadow: 0 25px 45px -15px rgba(40, 5, 15, .55);
+      position: relative;
+    }
+    .polaroid img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 40% 60%; filter: sepia(.15) saturate(.9); }
+    .polaroid figcaption {
+      position: absolute; left: 0; right: 0; bottom: 12px; text-align: center;
+      font-family: var(--script); font-size: 2.3rem; line-height: 1; color: var(--red);
+    }
+    .ku .script { color: var(--blush); }
+    .ku .count { font-weight: 900; font-size: clamp(5rem, 16vw, 8.5rem); line-height: .85; letter-spacing: -.05em; }
+    .ku .headline { font-size: clamp(2rem, 6vw, 3.1rem); }
+    .ku p:not([class]) { margin-top: 1rem; max-width: 36ch; color: var(--blush); font-size: 1.1rem; }
+    .ku .btn { margin-top: 1.75rem; }
+    @media (max-width: 760px) {
+      .ku .wrap { grid-template-columns: 1fr; text-align: center; }
+      .polaroid { width: min(78%, 300px); }
+      .ku p:not([class]) { margin-inline: auto; }
+    }
+
+    /* ── Follow ── */
+    .follow { padding-block: clamp(3.5rem, 9vw, 6rem); }
+    .follow .stack { text-align: center; margin-bottom: clamp(2rem, 5vw, 3rem); }
+    .follow .headline { color: var(--wine); }
+    .follow .ic {
+      display: grid; place-items: center; width: 54px; height: 54px; margin: 0 auto 1.1rem;
+      border-radius: 50%; background: var(--red); color: var(--paper);
+    }
+    .follow .ic svg { width: 24px; height: 24px; fill: currentColor; }
+    .follow h3 { color: var(--red); font-size: .95rem; }
+    .follow .handle { display: block; margin-top: .35rem; font-size: .92rem; color: var(--ink-2); }
+    .follow li { display: flex; flex-direction: column; align-items: center; }
+    .follow li .btn { margin-top: auto; }
+    .follow p:not([class]) { margin: .8rem auto 1.4rem; max-width: 24ch; font-style: italic; color: var(--ink); }
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.1 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.2.6 2.9.3.8.7 1.5 1.4 2.1.7.7 1.3 1.1 2.1 1.4.8.3 1.6.5 2.9.6 1.2 0 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.2-.3 2.9-.6.8-.3 1.5-.7 2.1-1.4.7-.7 1.1-1.3 1.4-2.1.3-.8.5-1.6.6-2.9 0-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.3-2.2-.6-2.9-.3-.8-.7-1.5-1.4-2.1C21.4 1.3 20.7.9 19.9.6 19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></symbol>
+  </svg>
+
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="hero">
-    <div class="wrap site-head">
-      <span aria-hidden="true"></span>
-      <nav class="site-nav" aria-label="Site">
-        <a href="#books">Books</a>
-        <a href="/roped-in-ruin/">Roped In Ruin</a>
-        <a href="#follow" class="opt">Follow</a>
-      </nav>
-    </div>
+  <div class="announce label"><a href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener">Buckle Up, Buttercup<span class="wide"> · out April 23, 2027</span> · pre-order now</a></div>
 
-    <div class="wrap hero-body">
-      <h1>
-        <img src="/img/wordmark.webp" alt="Penelope Paige" width="1200" height="218" fetchpriority="high" />
-      </h1>
-      <p class="tag">No limits. No labels. Just smut.</p>
-      <p class="pitch">Short, spicy, and completely unhinged.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Read on Kindle Unlimited <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#new">What's next</a>
-      </div>
+  <header class="mast">
+    <div class="wrap mast-row">
+      <a class="btn btn-red btn-sm" href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Read on KU</a>
+      <h1 class="logo"><img src="/img/wordmark.webp" alt="Penelope Paige" width="1200" height="218" fetchpriority="high" /></h1>
+      <ul class="soc" aria-label="Penelope Paige on social media">
+        <li><a href="https://instagram.com/penpaigebooks" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig" /></svg></a></li>
+        <li><a href="https://www.facebook.com/penelopepaigebooks" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-fb" /></svg></a></li>
+        <li><a href="https://x.com/penpaigebooks" target="_blank" rel="noopener" aria-label="X"><svg aria-hidden="true"><use href="#i-x" /></svg></a></li>
+      </ul>
     </div>
-    <span class="scroll-cue" aria-hidden="true"></span>
   </header>
+
+  <nav class="navband" aria-label="Site">
+    <ul class="label">
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Books</a></li>
+      <li><a href="/roped-in-ruin/">Roped In Ruin</a></li>
+      <li><a href="#follow">Follow</a></li>
+    </ul>
+  </nav>
 
   <main id="main">
 
-    <section class="section" id="new" aria-labelledby="new-title">
-      <div class="wrap feature">
-        <a class="feature-cover" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener" aria-label="Pre-order Buckle Up, Buttercup on Amazon">
-          <img class="cover" src="/roped-in-ruin/covers/buckle-up-buttercup.jpg" alt="Buckle Up, Buttercup cover" width="938" height="1500" />
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="panel stack">
+        <p class="script">no limits. no labels.</p>
+        <h2 class="headline" id="hero-title">just smut.</h2>
+        <p>Short, spicy, and completely unhinged &mdash; ten of them, on Kindle Unlimited.</p>
+        <a class="btn btn-red" href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Shop all books</a>
+      </div>
+    </section>
+
+    <div class="ribbon label" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>No limits</span><span>No labels</span><span>Just smut</span><span>No limits</span><span>No labels</span><span>Just smut</span><span>No limits</span><span>No labels</span><span>Just smut</span>
+        <span>No limits</span><span>No labels</span><span>Just smut</span><span>No limits</span><span>No labels</span><span>Just smut</span><span>No limits</span><span>No labels</span><span>Just smut</span>
+      </div>
+    </div>
+
+    <section class="latest" id="new" aria-labelledby="new-title">
+      <div class="wrap">
+        <a class="book3d" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener" aria-label="Pre-order Buckle Up, Buttercup on Amazon">
+          <img src="/roped-in-ruin/covers/buckle-up-buttercup.jpg" alt="Buckle Up, Buttercup cover" width="938" height="1500" />
         </a>
-        <div>
-          <p class="eyebrow">Up for pre-order</p>
-          <h2 class="display" id="new-title">Buckle Up, <em>Buttercup</em></h2>
-          <p class="series">Book four of <a href="/roped-in-ruin/">Roped In Ruin</a></p>
-          <p class="lede">A four-author, shared-world series of cowboys, con men, and debts that don't stay buried.</p>
-          <dl class="meta">
-            <div><dt>Release</dt><dd>Apr 23, 2027</dd></div>
+        <div class="stack">
+          <p class="script">coming soon</p>
+          <h2 class="headline" id="new-title">buckle up, buttercup</h2>
+          <p class="label">Roped In Ruin · Book Four</p>
+          <p>A four-author, shared-world series of cowboys, con men, and debts that don't stay buried. Ride in for the drawl. Stay because you're already in too deep.</p>
+          <dl class="facts">
+            <div><dt>Release</dt><dd>April 23, 2027</dd></div>
             <div><dt>Series</dt><dd>4 books · 2 duets</dd></div>
           </dl>
           <div class="ctas">
-            <a class="btn btn-primary" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener">Pre-order on Amazon <span class="arr" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="/roped-in-ruin/">See the series</a>
-          </div>
-          <div class="shelf">
-            <p>Also in Roped In Ruin</p>
-            <a href="/roped-in-ruin/" aria-label="The rest of the Roped In Ruin series">
-              <img class="cover" src="/roped-in-ruin/covers/ruined-joy.jpg" alt="" width="1250" height="2000" loading="lazy" decoding="async" />
-              <img class="cover" src="/roped-in-ruin/covers/giddy-up-gorgeous.jpg" alt="" width="938" height="1500" loading="lazy" decoding="async" />
-              <img class="cover" src="/roped-in-ruin/covers/round-em-up-rambler.jpg" alt="" width="938" height="1500" loading="lazy" decoding="async" />
-              <img class="cover" src="/roped-in-ruin/covers/saddle-up-spitfire.jpg" alt="" width="1313" height="2000" loading="lazy" decoding="async" />
-            </a>
+            <a class="btn btn-red" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener">Pre-order</a>
+            <a class="btn btn-line" href="/roped-in-ruin/">The series</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="books" aria-labelledby="books-title" style="padding-top:0">
+    <div class="ribbon red label" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>Pre-order now</span><span>Out April 23, 2027</span><span>Pre-order now</span><span>Out April 23, 2027</span><span>Pre-order now</span><span>Out April 23, 2027</span>
+        <span>Pre-order now</span><span>Out April 23, 2027</span><span>Pre-order now</span><span>Out April 23, 2027</span><span>Pre-order now</span><span>Out April 23, 2027</span>
+      </div>
+    </div>
+
+    <section class="series wrap" aria-labelledby="series-title">
+      <div class="stack">
+        <p class="script">saddle up,</p>
+        <h2 class="headline" id="series-title">roped in ruin</h2>
+      </div>
+      <p class="sub">Four books. Two duets. One hell of a ride &mdash; a shared world from Dahlia Grae, Nix Marie, Sadie Winchester, and me.</p>
+      <ul class="shelf">
+        <li><a href="/roped-in-ruin/"><span class="book3d"><img src="/roped-in-ruin/covers/ruined-joy.jpg" alt="" width="1250" height="2000" loading="lazy" decoding="async" /></span><span class="t">Ruined Joy</span><span class="d">Prequel · Nov 3</span></a></li>
+        <li><a href="/roped-in-ruin/"><span class="book3d"><img src="/roped-in-ruin/covers/giddy-up-gorgeous.jpg" alt="" width="938" height="1500" loading="lazy" decoding="async" /></span><span class="t">Giddy Up, Gorgeous</span><span class="d">Book 1 · Jan 23</span></a></li>
+        <li><a href="/roped-in-ruin/"><span class="book3d"><img src="/roped-in-ruin/covers/round-em-up-rambler.jpg" alt="" width="938" height="1500" loading="lazy" decoding="async" /></span><span class="t">Round &rsquo;Em Up, Rambler</span><span class="d">Book 2 · Feb 23</span></a></li>
+        <li><a href="/roped-in-ruin/"><span class="book3d"><img src="/roped-in-ruin/covers/saddle-up-spitfire.jpg" alt="" width="1313" height="2000" loading="lazy" decoding="async" /></span><span class="t">Saddle Up, Spitfire</span><span class="d">Book 3 · Mar 23</span></a></li>
+        <li><a href="/roped-in-ruin/"><span class="book3d"><img src="/roped-in-ruin/covers/buckle-up-buttercup.jpg" alt="" width="938" height="1500" loading="lazy" decoding="async" /></span><span class="t">Buckle Up, Buttercup</span><span class="d">Book 4 · Apr 23</span></a></li>
+      </ul>
+      <a class="btn btn-line" href="/roped-in-ruin/">See the series</a>
+    </section>
+
+    <section class="ku" id="books" aria-labelledby="ku-title">
       <div class="wrap">
-        <div class="ku">
-          <span class="count" aria-hidden="true">10</span>
-          <div>
-            <h2 id="books-title">Ten titles on Kindle Unlimited</h2>
-            <p>Short, spicy, and completely unhinged. Binge the lot.</p>
-          </div>
-          <a class="btn btn-primary" href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Start reading <span class="arr" aria-hidden="true">→</span></a>
+        <figure class="polaroid">
+          <img src="/img/sheets.jpg" alt="" width="1200" height="1537" loading="lazy" decoding="async" />
+          <figcaption>stay in bed</figcaption>
+        </figure>
+        <div class="stack">
+          <p class="script">binge the lot</p>
+          <p class="count" aria-hidden="true">10</p>
+          <h2 class="headline" id="ku-title">titles on kindle unlimited</h2>
+          <p>Short, spicy, and completely unhinged. Writing the women I needed when I was younger.</p>
+          <a class="btn btn-cream" href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Start reading</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="follow" aria-labelledby="follow-title" style="padding-top:0">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="follow-title">Find me <em>online</em></h2>
-          <span class="ln" aria-hidden="true"></span>
-        </div>
-        <ul class="socials">
-          <li>
-            <a class="social" href="https://instagram.com/penpaigebooks" target="_blank" rel="noopener">
-              <span class="top">
-                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.1 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.2.6 2.9.3.8.7 1.5 1.4 2.1.7.7 1.3 1.1 2.1 1.4.8.3 1.6.5 2.9.6 1.2 0 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.2-.3 2.9-.6.8-.3 1.5-.7 2.1-1.4.7-.7 1.1-1.3 1.4-2.1.3-.8.5-1.6.6-2.9 0-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.3-2.2-.6-2.9-.3-.8-.7-1.5-1.4-2.1C21.4 1.3 20.7.9 19.9.6 19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
-                <span class="arr" aria-hidden="true">↗</span>
-              </span>
-              <span class="txt">
-                <span class="name">Instagram</span>
-                <span class="handle">@penpaigebooks</span>
-                <span class="sub" style="display:block">Feral screenshots &amp; general chaos</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="social" href="https://www.facebook.com/penelopepaigebooks" target="_blank" rel="noopener">
-              <span class="top">
-                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-                <span class="arr" aria-hidden="true">↗</span>
-              </span>
-              <span class="txt">
-                <span class="name">Facebook</span>
-                <span class="handle">penelopepaigebooks</span>
-                <span class="sub" style="display:block">Grocery runs, kid shenanigans, the real life stuff</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="social" href="https://x.com/penpaigebooks" target="_blank" rel="noopener">
-              <span class="top">
-                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg>
-                <span class="arr" aria-hidden="true">↗</span>
-              </span>
-              <span class="txt">
-                <span class="name">X</span>
-                <span class="handle">@penpaigebooks</span>
-                <span class="sub" style="display:block">Uncensored. You've been warned.</span>
-              </span>
-            </a>
-          </li>
-        </ul>
+    <section class="follow wrap" id="follow" aria-labelledby="follow-title">
+      <div class="stack">
+        <p class="script">come say hi</p>
+        <h2 class="headline headline-sm" id="follow-title">find me online</h2>
       </div>
+      <ul class="frame-row">
+        <li>
+          <span class="ic"><svg aria-hidden="true"><use href="#i-ig" /></svg></span>
+          <h3 class="label">Instagram</h3>
+          <span class="handle">@penpaigebooks</span>
+          <p>Feral screenshots &amp; general chaos</p>
+          <a class="btn btn-red btn-sm" href="https://instagram.com/penpaigebooks" target="_blank" rel="noopener">Follow</a>
+        </li>
+        <li>
+          <span class="ic"><svg aria-hidden="true"><use href="#i-fb" /></svg></span>
+          <h3 class="label">Facebook</h3>
+          <span class="handle">penelopepaigebooks</span>
+          <p>Grocery runs, kid shenanigans, the real life stuff</p>
+          <a class="btn btn-red btn-sm" href="https://www.facebook.com/penelopepaigebooks" target="_blank" rel="noopener">Follow</a>
+        </li>
+        <li>
+          <span class="ic"><svg aria-hidden="true"><use href="#i-x" /></svg></span>
+          <h3 class="label">X / Twitter</h3>
+          <span class="handle">@penpaigebooks</span>
+          <p>Uncensored. You've been warned.</p>
+          <a class="btn btn-red btn-sm" href="https://x.com/penpaigebooks" target="_blank" rel="noopener">Follow</a>
+        </li>
+      </ul>
     </section>
 
   </main>
 
-  <footer class="site-foot">
-    <div class="wrap">
-      <p class="quote">Writing the women I needed when I was younger. <span class="mark">Better late than never.</span></p>
-      <p class="small">© 2026 Penelope Paige · For readers 18+</p>
+  <footer class="foot">
+    <nav class="foot-nav" aria-label="Footer">
+      <ul class="label">
+        <li><a href="/">Home</a></li>
+        <li><a href="https://www.amazon.com/author/penelopepaige" target="_blank" rel="noopener">Books</a></li>
+        <li><a href="/roped-in-ruin/">Roped In Ruin</a></li>
+        <li><a href="#follow">Follow</a></li>
+      </ul>
+    </nav>
+    <div class="wrap foot-main">
+      <img class="logo" src="/img/wordmark.webp" alt="" width="1200" height="218" loading="lazy" />
+      <p class="tag label">No limits. No labels. Just smut.</p>
+      <ul class="soc" aria-label="Penelope Paige on social media">
+        <li><a href="https://instagram.com/penpaigebooks" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig" /></svg></a></li>
+        <li><a href="https://www.facebook.com/penelopepaigebooks" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-fb" /></svg></a></li>
+        <li><a href="https://x.com/penpaigebooks" target="_blank" rel="noopener" aria-label="X"><svg aria-hidden="true"><use href="#i-x" /></svg></a></li>
+      </ul>
+      <p class="quote">Writing the women I needed when I was younger. Better late than never.</p>
     </div>
+    <p class="foot-base label">© 2026 Penelope Paige · For readers 18+</p>
   </footer>
 
 </body>
