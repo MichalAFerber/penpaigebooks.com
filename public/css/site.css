@@ -21,7 +21,7 @@ img { display: block; max-width: 100%; }
   --hair:     rgba(58, 31, 39, .14);
 
   --display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --script:  'Mrs Saint Delafield', 'Snell Roundhand', cursive;
+  --script:  'Birthstone', 'Snell Roundhand', cursive;
   --label:   'Josefin Sans', 'Futura', 'Century Gothic', sans-serif;
 
   --gutter: clamp(1rem, 5vw, 2.5rem);
