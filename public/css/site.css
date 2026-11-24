@@ -196,6 +196,35 @@ a { color: inherit; }
 .foot-base { background: var(--wine); color: var(--blush); padding: .9rem var(--gutter) .8rem; }
 .foot-base .label { font-size: .66rem; }
 
+/* ── SendFox signup form ─────────────────────────────────
+   SendFox writes inline styles, so these need !important to win. */
+.sendfox-embed { max-width: 520px !important; margin-inline: auto; text-align: left; }
+.sendfox-embed-card {
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  padding: 0 !important; color: var(--ink) !important; font-family: var(--display) !important;
+}
+.sendfox-embed form { display: grid !important; grid-template-columns: 1fr 1fr; gap: 1rem !important; }
+.sendfox-embed form > :not(div) { grid-column: 1 / -1; }
+.sendfox-embed label {
+  font-family: var(--label) !important; font-size: .7rem !important; font-weight: 600 !important;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--wine) !important; margin-bottom: .45rem !important;
+}
+.sendfox-embed input[type="text"], .sendfox-embed input[type="email"] {
+  min-height: 50px; padding: .8rem 1rem !important;
+  border: 1.5px solid var(--red) !important; border-radius: 0 !important;
+  background: var(--paper) !important; color: var(--ink) !important;
+  font-family: var(--display) !important; font-size: 1.05rem !important;
+}
+.sendfox-embed input:focus { outline: 2px solid var(--red); outline-offset: 2px; }
+.sendfox-embed button[type="submit"] {
+  min-height: 52px; margin-top: .25rem !important; padding: 1rem 1.5rem .9rem !important;
+  background: var(--red) !important; color: #fff !important; border-radius: 0 !important;
+  font-family: var(--label) !important; font-size: .8rem !important; font-weight: 600 !important;
+  letter-spacing: .24em; text-transform: uppercase; transition: background .2s;
+}
+.sendfox-embed button[type="submit"]:hover { background: var(--wine) !important; }
+@media (max-width: 520px) { .sendfox-embed form { grid-template-columns: 1fr; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
   .ribbon-track { animation: none; }
