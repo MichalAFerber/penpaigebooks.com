@@ -1,15 +1,21 @@
 # penpaigebooks.com
 
-The author links page for **Penelope Paige**, live at
+The author site for **Penelope Paige**, live at
 <https://penpaigebooks.com>.
 
 ## What's here
 
 Everything served is in `public/`:
 
-- `index.html` — the links page.
+- `index.html` — the home page.
+- `roped-in-ruin/` — the Roped In Ruin series page and its `covers/`.
 - `404.html` — the not-found page.
-- `pen_signature_tx.svg`, `bg.png` — the signature mark and background.
+- `css/site.css` — the shared palette, type, header, buttons and footer every
+  page links. Page-only layout stays in each page's own `<style>`.
+- `img/wordmark.webp`, `img/sheets.jpg` — the web-sized wordmark and bedsheet
+  texture the pages use, cut from the two source files below.
+- `pen_signature_tx.svg`, `bg.png` — the source signature mark and background
+  art (no page loads them directly).
 - `favicon.svg`, `favicon.ico`, `favicon-16.png`, `favicon-32.png`,
   `apple-touch-icon.png` — the icon set.
 - `robots.txt`, `sitemap-index.xml`, `sitemap.xml` — the crawler files. The

@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#140A11" />
 
   <title>Roped In Ruin</title>
   <meta name="description" content="Roped In Ruin — four books, two duets, one shared-world town of cowboys, con men, and debts that don't stay buried. From Dahlia Grae, Nix Marie, Sadie Winchester, and Penelope Paige." />
@@ -24,293 +25,111 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
 
   <script defer data-domain="penpaigebooks.com" src="https://plausible.thompsonblack.us/js/script.outbound-links.file-downloads.tagged-events.js"></script>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:      #0B0709;   /* near-black leather */
-      --ink-2:    #150A10;
-      --red:      #BF1D2F;
-      --red-deep: #7C0F1B;
-      --blue:     #5EC0E9;
-      --cream:    #EDE0CC;
-      --paper:    #D8C9B4;
-      --muted:    #877283;
-      --faint:    #4A3E48;
-      --hair:     rgba(216,201,180,0.14);
-    }
-
-    html { background: var(--ink); }
-
     body {
-      min-height: 100vh;
       background:
-        radial-gradient(90% 55% at 82% 0%, rgba(191,29,47,0.16) 0%, transparent 60%),
-        radial-gradient(70% 50% at 0% 100%, rgba(124,15,27,0.14) 0%, transparent 55%),
-        linear-gradient(175deg, var(--ink-2) 0%, var(--ink) 45%, #060405 100%);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
+        radial-gradient(80% 50% at 85% 0%, rgba(200, 32, 58, .18) 0%, transparent 60%),
+        radial-gradient(60% 40% at 0% 30%, rgba(126, 16, 36, .14) 0%, transparent 60%),
+        var(--ink);
     }
-
-    /* Film grain — the single biggest "this was made by hand" tell */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.06;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 660px;
-      margin: 0 auto;
-      padding: clamp(1.4rem, 4vw, 2.5rem) clamp(1.25rem, 5vw, 2.25rem) 3rem;
-    }
-
-    a { color: inherit; }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .topbar a { text-decoration: none; transition: color 0.2s; }
-    .topbar a:hover { color: var(--cream); }
-    .topbar .est { color: var(--faint); }
+    main { overflow-x: clip; }
 
     /* ── Masthead ── */
-    .masthead { padding: clamp(2.5rem, 9vw, 4.5rem) 0 clamp(1.75rem, 5vw, 2.5rem); }
-
-    h1.title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: clamp(3.2rem, 16vw, 6rem);
-      line-height: 1.04;
-      letter-spacing: -0.015em;
-      color: var(--cream);
+    .masthead { padding-block: clamp(2.5rem, 9vw, 5rem) clamp(2.5rem, 7vw, 4rem); }
+    .masthead .display { font-size: clamp(3.4rem, 15vw, 8.5rem); margin-top: .9rem; }
+    .masthead .display em { color: var(--red); font-weight: 500; }
+    .masthead .tagline {
+      margin-top: clamp(1.1rem, 3vw, 1.6rem);
+      font-family: var(--serif); font-style: italic; font-weight: 300;
+      font-size: clamp(1.25rem, 4vw, 1.7rem); color: var(--cream);
     }
-    h1.title .ruin {
-      color: var(--red);
-      font-style: italic;
-      font-weight: 700;
-    }
+    .masthead .lede { margin-top: 1.25rem; max-width: 52ch; }
+    .masthead .lede em { color: var(--cream); font-style: normal; border-bottom: 1px solid var(--red); }
 
-    .tagline {
-      margin-top: 1.4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.15rem, 4vw, 1.5rem);
-      color: var(--paper);
+    /* ── Reading order ── */
+    /* Five equal columns; each set spans its books and shares the grid via subgrid */
+    .order {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: clamp(1rem, 2.5vw, 1.75rem);
+      row-gap: 3rem;
     }
-
-    .lede {
-      margin-top: 1.5rem;
-      max-width: 42ch;
-      color: #c9bba9;
-      font-weight: 300;
-    }
-    .lede em { color: var(--cream); font-style: normal; border-bottom: 1px solid var(--red-deep); }
-
-    /* Hand-drawn-ish divider */
-    .rule {
-      margin: 2.5rem 0 0.5rem;
-      border: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--red) 0%, var(--red-deep) 22%, transparent 60%);
-    }
-
-    /* ── Book ledger ── */
+    .set { grid-column: span 2; display: grid; grid-template-columns: subgrid; align-content: start; }
+    .set.solo { grid-column: span 1; }
     .set-head {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--cream);
-      margin: 2rem 0 0.35rem;
+      grid-column: 1 / -1;
+      display: flex; align-items: baseline; gap: .6rem;
+      padding-bottom: .8rem; margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line-2);
     }
-    .set-head span { color: var(--muted); font-size: 0.9rem; }
+    .set-head h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.3rem; line-height: 1.1; }
+    .set-head span { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .books { display: contents; }
 
-    .book {
-      display: flex;
-      gap: 1.15rem;
-      align-items: center;
-      padding: 1.15rem 0;
-      border-bottom: 1px solid var(--hair);
+    .book { display: flex; flex-direction: column; }
+    .book .cover { transition: transform .3s var(--ease); }
+    .book:hover .cover { transform: translateY(-5px) rotate(-1deg); }
+    .book .idx {
+      margin-top: 1rem;
+      font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--rose);
     }
+    .book h3 {
+      margin-top: .3rem;
+      font-family: var(--serif); font-weight: 600; font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.15;
+      letter-spacing: -.01em; text-wrap: balance;
+    }
+    .book .by { margin-top: .35rem; font-size: .88rem; font-weight: 300; color: var(--cream-2); }
+    .book .by a { text-decoration: none; border-bottom: 1px solid var(--line-2); transition: color .2s, border-color .2s; }
+    .book .by a:hover { color: var(--rose); border-color: var(--rose); }
+    .book .date { margin-top: .7rem; display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--cream-2); }
+    .book .date::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+    .book .btn { margin-top: .9rem; min-height: 42px; padding: .6rem 1.1rem; font-size: .85rem; align-self: flex-start; }
 
-    /* Cover slot. When art is final, swap this <div> for:
-       <img class="cover" src="covers/buckle-up-buttercup.jpg"
-            alt="Buckle Up, Buttercup" width="78" height="117" /> */
-    .cover {
-      flex-shrink: 0;
-      width: 78px;
-      aspect-ratio: 2 / 3;
-      border-radius: 3px;
-      object-fit: cover;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-    }
-
-    .book-main { flex: 1; min-width: 0; }
-    .book-idx {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.82rem;
-      color: var(--red);
-      letter-spacing: 0.05em;
-    }
-    .book-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: clamp(1.25rem, 5vw, 1.55rem);
-      line-height: 1.1;
-      color: var(--cream);
-      margin: 0.1rem 0 0.2rem;
-    }
-    .book-by {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--muted);
-    }
-    .book-by a {
-      color: var(--paper);
-      text-decoration: none;
-      border-bottom: 1px solid var(--faint);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .book-by a:hover { color: var(--blue); border-color: var(--blue); }
-
-    .book-status { flex-shrink: 0; text-align: right; }
-    .dated {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--paper);
-      white-space: nowrap;
-    }
-    .dated::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      margin-right: 0.4rem;
-      border-radius: 50%;
-      background: var(--red);
-      vertical-align: middle;
-    }
-
-    /* Pre-order reads like a rubber ink-stamp, slightly off-kilter */
-    .stamp {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--red);
-      padding: 0.5rem 0.85rem;
-      border: 1.5px solid var(--red);
-      box-shadow: inset 0 0 0 1px rgba(191,29,47,0.35);
-      border-radius: 2px;
-      white-space: nowrap;
-      transform: rotate(-2.2deg);
-      transition: background 0.18s, color 0.18s, transform 0.18s;
-    }
-    .stamp:hover {
-      background: var(--red);
-      color: #fff;
-      transform: rotate(-2.2deg) scale(1.03);
+    @media (max-width: 900px) {
+      .order { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .set, .set.solo { grid-column: 1 / -1; }
     }
 
     /* ── Authors ── */
-    .credits { margin-top: 2.75rem; }
-    .credits-head {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--cream);
-      margin-bottom: 1rem;
-    }
-    .credit-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem 1.75rem;
-    }
+    .credits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
     .credit {
-      display: block;
-      text-decoration: none;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--hair);
+      display: block; text-decoration: none;
+      padding: 1.25rem 1.3rem; border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--ink-2);
+      transition: border-color .2s, background .2s, transform .25s var(--ease);
     }
-    .credit .name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.08rem;
-      color: var(--cream);
-      transition: color 0.2s;
-    }
-    .credit .at {
-      display: block;
-      font-size: 0.74rem;
-      font-weight: 300;
-      color: var(--muted);
-      margin-top: 0.1rem;
-      word-break: break-word;
-    }
-    .credit:hover .name { color: var(--red); }
-    .credit:hover .at { color: var(--blue); }
+    .credit:hover { border-color: var(--rose); background: var(--ink-3); transform: translateY(-3px); }
+    .credit .name { display: block; font-family: var(--serif); font-size: 1.2rem; line-height: 1.2; }
+    .credit .at { display: block; margin-top: .25rem; font-size: .8rem; color: var(--muted); word-break: break-word; transition: color .2s; }
+    .credit:hover .at { color: var(--rose); }
+    .credit .you { color: var(--rose); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: .4rem; }
+    @media (max-width: 900px) { .credits { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 420px) { .credits { grid-template-columns: 1fr; } }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 3.25rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--hair);
-    }
-    .signoff {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--paper);
-    }
-    .signoff .mark { color: var(--red); font-style: normal; }
-    .smallprint {
-      margin-top: 0.8rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
-      color: var(--faint);
-    }
-
-    @media (max-width: 440px) {
-      .credit-list { grid-template-columns: 1fr; }
-      .book { gap: 0.9rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .stamp, .book-by a, .credit .name, .credit .at { transition: none; }
-    }
+    .site-foot .quote { max-width: 34ch; }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <div class="wrap">
+  <header class="wrap site-head">
+    <a class="mark" href="/"><img src="/img/wordmark.webp" alt="Penelope Paige — home" width="1200" height="218" /></a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/#books" class="opt">Books</a>
+      <a href="/roped-in-ruin/" aria-current="page">Roped In Ruin</a>
+      <a href="/#follow">Follow</a>
+    </nav>
+  </header>
 
-    <div class="topbar">
-      <a href="/">&larr; Penelope Paige</a>
-      <span class="est">A shared world</span>
-    </div>
-
-    <header class="masthead">
-      <h1 class="title">Roped in<br /><span class="ruin">Ruin</span></h1>
+  <main id="main">
+    <section class="wrap masthead">
+      <p class="eyebrow">A shared-world series</p>
+      <h1 class="display">Roped in <em>Ruin</em></h1>
       <p class="tagline">Four books. Two duets. One hell of a ride.</p>
       <p class="lede">
         Cowboys you shouldn't trust and ranchers who owe the wrong people. There's
@@ -318,78 +137,78 @@
         where the house always collects &mdash; in cash, or in kind. Ride in for the drawl.
         Stay because you're already in too deep.
       </p>
-    </header>
+    </section>
 
-    <hr class="rule" />
+    <section class="wrap" aria-label="Reading order">
+      <div class="order">
 
-    <main>
-      <p class="set-head">Where it starts</p>
-
-      <article class="book">
-        <img class="cover" src="covers/ruined-joy.jpg" alt="Ruined Joy cover" width="78" height="117" loading="lazy" decoding="async" />
-        <div class="book-main">
-          <p class="book-idx">00 &middot; Prequel</p>
-          <h2 class="book-title">Ruined Joy</h2>
-          <p class="book-by">
-            <a href="https://www.instagram.com/authordahliagrae/" target="_blank" rel="noopener">Dahlia Grae</a>
-            &amp;
-            <a href="https://www.instagram.com/authornix.marie/" target="_blank" rel="noopener">Nix Marie</a>
-          </p>
+        <div class="set solo">
+          <div class="set-head"><h2>Where it starts</h2></div>
+          <div class="books">
+            <article class="book">
+              <img class="cover" src="covers/ruined-joy.jpg" alt="Ruined Joy cover" width="1250" height="2000" decoding="async" />
+              <p class="idx">00 · Prequel</p>
+              <h3>Ruined Joy</h3>
+              <p class="by">
+                <a href="https://www.instagram.com/authordahliagrae/" target="_blank" rel="noopener">Dahlia Grae</a>
+                &amp;
+                <a href="https://www.instagram.com/authornix.marie/" target="_blank" rel="noopener">Nix Marie</a>
+              </p>
+              <p class="date">Out Nov 3, 2026</p>
+            </article>
+          </div>
         </div>
-        <div class="book-status"><span class="dated">out Nov 3, 2026</span></div>
-      </article>
 
-      <p class="set-head">Ruined Lies <span>&middot; a duet</span></p>
-
-      <article class="book">
-        <img class="cover" src="covers/giddy-up-gorgeous.jpg" alt="Giddy Up, Gorgeous cover" width="78" height="117" loading="lazy" decoding="async" />
-        <div class="book-main">
-          <p class="book-idx">01</p>
-          <h2 class="book-title">Giddy Up, Gorgeous</h2>
-          <p class="book-by"><a href="https://www.instagram.com/authordahliagrae/" target="_blank" rel="noopener">Dahlia Grae</a></p>
+        <div class="set">
+          <div class="set-head"><h2>Ruined Lies</h2><span>A duet</span></div>
+          <div class="books">
+            <article class="book">
+              <img class="cover" src="covers/giddy-up-gorgeous.jpg" alt="Giddy Up, Gorgeous cover" width="938" height="1500" decoding="async" />
+              <p class="idx">Book 01</p>
+              <h3>Giddy Up, Gorgeous</h3>
+              <p class="by"><a href="https://www.instagram.com/authordahliagrae/" target="_blank" rel="noopener">Dahlia Grae</a></p>
+              <p class="date">Out Jan 23, 2027</p>
+            </article>
+            <article class="book">
+              <img class="cover" src="covers/round-em-up-rambler.jpg" alt="Round 'Em Up, Rambler cover" width="938" height="1500" decoding="async" />
+              <p class="idx">Book 02</p>
+              <h3>Round &rsquo;Em Up, Rambler</h3>
+              <p class="by"><a href="https://www.instagram.com/authornix.marie/" target="_blank" rel="noopener">Nix Marie</a></p>
+              <p class="date">Out Feb 23, 2027</p>
+            </article>
+          </div>
         </div>
-        <div class="book-status"><span class="dated">out Jan 23, 2027</span></div>
-      </article>
 
-      <article class="book">
-        <img class="cover" src="covers/round-em-up-rambler.jpg" alt="Round 'Em Up, Rambler cover" width="78" height="117" loading="lazy" decoding="async" />
-        <div class="book-main">
-          <p class="book-idx">02</p>
-          <h2 class="book-title">Round &rsquo;Em Up, Rambler</h2>
-          <p class="book-by"><a href="https://www.instagram.com/authornix.marie/" target="_blank" rel="noopener">Nix Marie</a></p>
+        <div class="set">
+          <div class="set-head"><h2>Ruined Vows</h2><span>A duet</span></div>
+          <div class="books">
+            <article class="book">
+              <img class="cover" src="covers/saddle-up-spitfire.jpg" alt="Saddle Up, Spitfire cover" width="1313" height="2000" loading="lazy" decoding="async" />
+              <p class="idx">Book 03</p>
+              <h3>Saddle Up, Spitfire</h3>
+              <p class="by"><a href="https://sadiewinchester.com/" target="_blank" rel="noopener">Sadie Winchester</a></p>
+              <p class="date">Out Mar 23, 2027</p>
+            </article>
+            <article class="book">
+              <img class="cover" src="covers/buckle-up-buttercup.jpg" alt="Buckle Up, Buttercup cover" width="938" height="1500" loading="lazy" decoding="async" />
+              <p class="idx">Book 04</p>
+              <h3>Buckle Up, Buttercup</h3>
+              <p class="by"><a href="/">Penelope Paige</a></p>
+              <p class="date">Out Apr 23, 2027</p>
+              <a class="btn btn-primary" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener">Pre-order <span class="arr" aria-hidden="true">→</span></a>
+            </article>
+          </div>
         </div>
-        <div class="book-status"><span class="dated">out Feb 23, 2027</span></div>
-      </article>
 
-      <p class="set-head">Ruined Vows <span>&middot; a duet</span></p>
+      </div>
+    </section>
 
-      <article class="book">
-        <img class="cover" src="covers/saddle-up-spitfire.jpg" alt="Saddle Up, Spitfire cover" width="78" height="117" loading="lazy" decoding="async" />
-        <div class="book-main">
-          <p class="book-idx">03</p>
-          <h2 class="book-title">Saddle Up, Spitfire</h2>
-          <p class="book-by"><a href="https://sadiewinchester.com/" target="_blank" rel="noopener">Sadie Winchester</a></p>
-        </div>
-        <div class="book-status"><span class="dated">out Mar 23, 2027</span></div>
-      </article>
-
-      <article class="book">
-        <img class="cover" src="covers/buckle-up-buttercup.jpg" alt="Buckle Up, Buttercup cover" width="78" height="117" loading="lazy" decoding="async" />
-        <div class="book-main">
-          <p class="book-idx">04</p>
-          <h2 class="book-title">Buckle Up, Buttercup</h2>
-          <p class="book-by"><a href="https://penpaigebooks.com/" target="_blank" rel="noopener">Penelope Paige</a></p>
-        </div>
-        <div class="book-status">
-          <span class="dated" style="display:block;margin-bottom:0.55rem">out Apr 23, 2027</span>
-          <a class="stamp" href="https://a.co/d/0gMCRXif" target="_blank" rel="noopener">Pre-order</a>
-        </div>
-      </article>
-    </main>
-
-    <section class="credits">
-      <p class="credits-head">The four to blame</p>
-      <div class="credit-list">
+    <section class="wrap section" aria-labelledby="credits-title">
+      <div class="section-head">
+        <h2 id="credits-title">The four <em>to blame</em></h2>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <div class="credits">
         <a class="credit" href="https://www.instagram.com/authordahliagrae/" target="_blank" rel="noopener">
           <span class="name">Dahlia Grae</span>
           <span class="at">@authordahliagrae</span>
@@ -402,19 +221,20 @@
           <span class="name">Sadie Winchester</span>
           <span class="at">sadiewinchester.com</span>
         </a>
-        <a class="credit" href="https://penpaigebooks.com/" target="_blank" rel="noopener">
+        <a class="credit" href="/">
           <span class="name">Penelope Paige</span>
           <span class="at">penpaigebooks.com</span>
         </a>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <p class="signoff">Reader discretion advised. Not that it'll <span class="mark">stop you.</span></p>
-      <p class="smallprint">Roped In Ruin &middot; a shared-world series</p>
-    </footer>
-
-  </div>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p class="quote">Reader discretion advised. <span class="mark">Not that it'll stop you.</span></p>
+      <p class="small">Roped In Ruin · a shared-world series · <a href="/">Penelope Paige</a></p>
+    </div>
+  </footer>
 
 </body>
 </html>
